@@ -12,6 +12,7 @@ namespace ContosoCrafts.WebSite.Pages
     /// Sheetal Kandhare
     /// </summary>
     /// Chandrashekhar Pawar
+    /// Atharva Jagtap
 
     public class IndexModel : PageModel
     {
