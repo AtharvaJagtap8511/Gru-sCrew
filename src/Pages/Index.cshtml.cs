@@ -14,6 +14,7 @@ namespace ContosoCrafts.WebSite.Pages
     /// Chandrashekhar Pawar
     /// Atharva Jagtap
     /// Aishwarya Patil
+    /// Testing merge conflict
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
