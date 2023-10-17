@@ -8,14 +8,20 @@
 
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-.card-columns .card:hover .card-img {
-    opacity: 1;
-    -webkit-transform-style: preserve-3d;
+
+/*Changes by sheetal*/
+.card-columns .card-img {
+    height: 300px; /* Adjusted height */
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: .8;
 }
 
 .card-columns .card-body {
     height: 100px;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'PT Serif', serif; /* Added by sheetal for dialog box*/
     background: #fbfafd;
 }
 
@@ -119,7 +125,7 @@ body {
 }
 
 p {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'PT Serif', serif;     /* Added by sheetal for dialog box*/
 }
 
 h1 {
