@@ -19,38 +19,64 @@ for details on configuring this project to bundle and minify static web assets. 
     opacity: .8;
 }
 
-.card-columns .card-body {
-    height: 100px;
-    font-family: 'PT Serif', serif; /* Added by sheetal for dialog box*/
-    background: #fbfafd;
+/* Added by sheetal to change the formatting according to website*/
+.modal {
+    max-width: 1000px; /* Increase the max-width of the dialog box */
+    margin: auto; /* Center the modal horizontally and vertically */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
-.card-columns .card-img {
-    height: 330px;
-    vertical-align: bottom;
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    opacity: .8;
+
+
+    .modal .card {
+        width: 100%; /* Make the card fill the modal */
+    }
+
+
+
+    .modal .card-img {
+        height: 220px; /* Reduce the height */
+        width: 220px; /* Reduce the width */
+        margin: 0 auto; /* Center the image */
+        vertical-align: middle;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: fadeIn 1s ease-in-out; /* Add animation */
+    }
+
+
+
+/* Keyframes for fadeIn animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+
+
+    to {
+        opacity: 1;
+    }
 }
 
-.modal .card-img {
-    height: 500px;
-    vertical-align: bottom;
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-}
 
+
+/* Card Columns */
 .card-columns .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
+    box-shadow: 0 10px 20px rgba(37, 33, 82, 0.12), 0 4px 8px rgba(37, 33, 82, 0.06);
 }
 
+
+
+/* Card Footer */
 .card-footer {
     background: #fbfafd;
 }
-
 
 a.navbar-brand {
     white-space: normal;
