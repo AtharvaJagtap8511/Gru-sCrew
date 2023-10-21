@@ -14,6 +14,11 @@
     <!-- Added by sheetal to resize image -->
     <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title' style="max-width: 35%; height: auto; display: block; margin: 0 auto;"> 
     <p class="card-text">@Model.Product.Description</p>
-    <button type="button" id="updateButton">Update</button>
+    <div class="row">
+
+        <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary">Update</a>
+
+    </div>
+
 
 </div>
