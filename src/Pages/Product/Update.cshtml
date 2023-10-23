@@ -35,9 +35,11 @@
             <span asp-validation-for="Product.Image" class="text-danger"></span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display:inline-block">
             <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="submit" value="Cancel" class="btn btn-primary" />
         </div>
+        
     </form>
 </div>
 <!-- This Razor Pages view allows users to update product information. It expects an 'id' route parameter to identify the product being edited. The form is used for submitting updates. -->
