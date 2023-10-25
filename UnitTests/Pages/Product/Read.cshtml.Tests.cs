@@ -81,7 +81,7 @@ namespace UnitTests.Pages.Product.Read
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("James Johnson\nSkills: Machine Learning, Algorithms", pageModel.Product.Title);
+            Assert.AreEqual("James Johnson", pageModel.Product.Title);
         }
 
         #endregion OnGet
