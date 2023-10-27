@@ -2,6 +2,7 @@
   {
     "Id": "jenlooper-cactus",
     "Maker": "@jenlooper",
+    "Email": "aaaaab@gmail.com",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9Tyj3xMVWI148t7-16dSXwozzQgXHabYuIQ\u0026usqp=CAU",
     "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
     "Title": "James Johnson",
@@ -13,78 +14,95 @@
       2,
       1,
       5
-    ]
+    ],
+    "Price": 0
   },
   {
     "Id": "jenlooper-light",
     "Maker": "jenlooper",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX5QfRCe6He3jTWUDhW8Q4D6q-0jT7kh4cIcyPvi7XIplzHMbsCyYXd9ZQbH1piRl6Zx4\u0026usqp=CAU",
     "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
     "Title": "Robert Zane\nSkills: Web Application Developer, Python",
     "Description": "I have profound knowledge of Python and I work as Web Application Developer.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   },
   {
     "Id": "jenlooper-lightshow",
     "Maker": "@jenlooper",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6la0dOXP7G7oy6b1-xmmmZSTvY2y612sYg\u0026usqp=CAU",
     "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
     "Title": "Ava Smith\nSkills: C, C\u002B\u002B, Java",
     "Description": "I am skilled in the basic programming languages and enthusiast to share my knowledge.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   },
   {
     "Id": "sailorhg-corsage",
     "Maker": "sailorhg",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRToCzw7h4E2mwgAW3Gni-svk2r_ebdAGko4A\u0026usqp=CAU",
     "Url": "https://twitter.com/sailorhg/status/1090113666911891456",
     "Title": "Donna Paulsen \n Skills: Java, Mobile App Development",
     "Description": "I am skilled in Java and will be the right person to come to for any app development need.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   },
   {
     "Id": "sailorhg-kit",
     "Maker": "sailorhg",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrqblrMVIFH5opT2uYDtlbiXqw_Y8gEId_g\u0026usqp=CAU",
     "Url": "https://twitter.com/sailorhg/status/1090122822007963648",
     "Title": "Emma Williams\nSkills: Operating Systems, Cyber Security",
     "Description": "Excited to pass on my skills on cyber security and OS.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   },
   {
     "Id": "sailorhg-led",
     "Maker": "sailorhg",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOfIYw15JTC2Z5mdjSq1QjeFvLZF9UNU-BWA\u0026usqp=CAU",
     "Url": "https://twitter.com/sailorhg/status/1090117277540745216",
     "Title": "Daniel Turner\nSkills: Software Testing, HCI(Human Computer Interaction)",
     "Description": "I am a digital magician weaving the art of software testing and the spell of HCI for seamless user experience.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   },
   {
     "Id": "vogueandcode-hipster-dev-bro",
     "Maker": "vogueandcode",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCcJKlkD0jgxu_zvB-2QiuD7V3YAq75r9NtA\u0026usqp=CAU",
     "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
     "Title": "William Smith\nSkills: Database Designing and Architecture",
     "Description": "I am expert in Database designing and architecture and have worked on different projects for designing the database.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   },
   {
     "Id": "vogueandcode-pretty-girls-code-tee",
     "Maker": "vogueandcode",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3fwcUPh1wacZg_27MoYvs4py2uKw3zEbMrA\u0026usqp=CAU",
     "Url": "https://www.vogueandcode.com/shop/pretty-girls-code-tee",
     "Title": "Amelia Jackson\n Skills: Big Data, Cloud Computing",
     "Description": "I am a tech visionary mastering the orchestra of big data and cloud computing to scult the future of digital landscapes.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   },
   {
     "Id": "vogueandcode-ruby-sis-2",
     "Maker": "vogueandcode",
+    "Email": null,
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGqeiMvcMA8ATx6McIgv0QgGq9njL6_9Q9Ww\u0026usqp=CAU",
     "Url": "https://www.vogueandcode.com/shop/ruby-sis-2",
     "Title": "Alex Wheeler\nSkills: IoT, Linux and Unix Skills",
     "Description": "I am the guy you can come to if you need to learn Linux/Unix skills.",
-    "Ratings": null
+    "Ratings": null,
+    "Price": 0
   }
 ]

@@ -106,10 +106,11 @@ namespace ContosoCrafts.WebSite.Services
             productData.Age = data.Age;
 
             productData.Description = data.Description.Trim();
-
+            productData.Email = data.Email;
             productData.Url = data.Url;
 
             productData.Image = data.Image;
+            
 
             SaveData(products);
 
