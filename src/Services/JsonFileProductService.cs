@@ -5,6 +5,8 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using ContosoCrafts.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
+using System.Text.RegularExpressions;
+using System;
 
 namespace ContosoCrafts.WebSite.Services
 {
@@ -62,23 +64,42 @@ namespace ContosoCrafts.WebSite.Services
 
             return data;
         }
+
+        public bool IsValidEmail(string email)
+        {
+            // Use a regular expression pattern for basic email format validation
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+            return Regex.IsMatch(email, pattern);
+        }
         public ProductModel UpdateData(ProductModel data)
         {
             var products = GetAllData();
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
+
             if (productData == null)
             {
                 return null;
             }
+
+            // Add email validation here
+            if (!IsValidEmail(data.Email))
+            {
+                productData.ErrorMessage = "Invalid email address. Please provide a valid email.";
+                return productData;
+            }
+
             // Update the data to the new passed-in values
             productData.Title = data.Title;
-            // productData.Age = data.Age;
             productData.Description = data.Description.Trim();
+            productData.Email = data.Email;
             productData.Url = data.Url;
             productData.Image = data.Image;
+
             SaveData(products);
+
             return productData;
         }
+
 
         private void SaveData(IEnumerable<ProductModel> products)
         {
