@@ -103,6 +103,8 @@ namespace ContosoCrafts.WebSite.Services
 
             productData.Title = data.Title;
 
+            productData.Age = data.Age;
+
             productData.Description = data.Description.Trim();
 
             productData.Url = data.Url;
