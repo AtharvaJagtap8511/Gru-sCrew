@@ -116,6 +116,23 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
+        /// DeleteData is a REST call to delete data
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ProductModel DeleteData(string id)
+        {
+            // Get the current set, and append the new record to it
+            var dataSet = GetAllData();
+            var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
+
+            var newDataSet = GetAllData().Where(m => m.Id.Equals(id) == false);
+
+            SaveData(newDataSet);
+
+            return data;
+        }
+        /// <summary>
 
         /// Save All products data to storage
 
