@@ -104,10 +104,11 @@ namespace ContosoCrafts.WebSite.Services
             productData.Title = data.Title;
 
             productData.Description = data.Description.Trim();
-
+            productData.Email = data.Email;
             productData.Url = data.Url;
 
             productData.Image = data.Image;
+            
 
             SaveData(products);
 
