@@ -14,11 +14,12 @@
     <!-- Added by sheetal to resize image -->
     <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title' style="max-width: 35%; height: auto; display: block; margin: 0 auto;">
     <p class="card-text">@Model.Product.Description</p>
-    <p class="card-text">@Model.Product.Email</p>
+    <p class="card-text">Age: @Model.Product.Age</p>
     <div class="row">
+
         <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary">Update</a>
-        <div class="col-md-2">
-            <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
-        </div>
+
     </div>
+
+
 </div>
