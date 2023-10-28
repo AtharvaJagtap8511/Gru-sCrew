@@ -65,6 +65,31 @@ namespace ContosoCrafts.WebSite.Services
             return data;
         }
 
+        /// <summary>
+        /// Create a new product using default values
+        /// After create the user can update to set values
+        /// </summary>
+        /// <returns></returns>
+        public ProductModel CreateData()
+        {
+            var data = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "Enter URL",
+                Image = "",
+            };
+
+            // Get the current set, and append the new record to it becuase IEnumerable does not have Add
+            var dataSet = GetAllData();
+            dataSet = dataSet.Append(data);
+
+            SaveData(dataSet);
+
+            return data;
+        }
+
         public bool IsValidEmail(string email)
         {
             // Use a regular expression pattern for basic email format validation
