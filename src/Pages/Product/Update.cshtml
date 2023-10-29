@@ -17,6 +17,12 @@
             <span asp-validation-for="Product.Title" class="text-danger"></span>
         </div>
         <div class="form-group">
+            <label>Skillset</label>
+            <input asp-for="Product.Skills" class="form-control" />
+            <span asp-validation-for="Product.Skills" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
             <label>Email</label>
             <input asp-for="Product.Email" class="form-control" />
             <span asp-validation-for="Product.Email" class="text-danger"></span>
