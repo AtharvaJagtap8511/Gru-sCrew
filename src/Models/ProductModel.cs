@@ -14,6 +14,7 @@ namespace ContosoCrafts.WebSite.Models
         public int Age { get; set; }
         public string Url { get; set; }
         public string Title { get; set; }
+        public string Skills { get; set; }
         public string Description { get; set; }
         public string Email { get; set; }
         public int[] Ratings { get; set; }
