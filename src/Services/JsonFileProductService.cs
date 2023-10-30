@@ -115,6 +115,7 @@ namespace ContosoCrafts.WebSite.Services
 
             // Update the data to the new passed-in values
             productData.Title = data.Title;
+            productData.Age = data.Age;
             productData.Description = data.Description.Trim();
             productData.Email = data.Email;
             productData.Url = data.Url;
