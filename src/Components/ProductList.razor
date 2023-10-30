@@ -3,24 +3,47 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 
-<div class="card-columns">
-@foreach (var product in ProductService.GetProducts())
-{
-    <div class="card">
-        <div class="card-img" style="background-image: url('@product.Image');">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">@product.Title</h5>
-            <h6 class="card-title">@product.Skills</h6>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" 
-              data-toggle="modal" data-target="#productModal" class="btn btn-primary">Details</button>
-            </small>
+<div>
+    <div class="row">
+        <div class="col">
+            <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
+            <button @onclick="(e => EnableFilterData())" class="btn btn-primary">Filter</button>
+            <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
         </div>
     </div>
+</div>
+
+<div class="card-columns">
+@{
+    var productList = ProductService.GetAllData();
+    // If filter is enabled, we will filter data based on title
+    if (FilterData)
+    {
+    productList = productList.Where(m => m.Title.Contains(FilterDataString));
+    }
+    if (productList.Any())
+    {
+        @foreach (var product in productList)
+            {
+                <div class="card">
+                    <div class="card-img" style="background-image: url('@product.Image');">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Title</h5>
+                        <h6 class="card-title">@product.Skills</h6>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" 
+                          data-toggle="modal" data-target="#productModal" class="btn btn-primary">Details</button>
+                        </small>
+                    </div>
+                </div>
+            }
+    }
 }
 </div>
+
+
 
 @if(selectedProduct != null)
 {
@@ -75,6 +98,8 @@
 {
     ProductModel selectedProduct;
     string selectedProductId;
+    string FilterDataString = "";
+    bool FilterData = false;
 
     void SelectProduct(string productId)
     {
@@ -105,9 +130,28 @@
     }
 
     void SubmitRating(int rating)
+
     {
+      
       System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
       ProductService.AddRating(selectedProductId, rating);
       SelectProduct(selectedProductId);
+    }
+    void UpdateFilterText(string text)
+    {
+        FilterDataString = text;
+    }
+
+    void EnableFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        
+        FilterData = true;
+    }
+
+    void ClearFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        FilterData = false;
     }
 }
