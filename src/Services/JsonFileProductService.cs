@@ -90,12 +90,7 @@ namespace ContosoCrafts.WebSite.Services
             return data;
         }
 
-        public bool IsValidEmail(string email)
-        {
-            // Use a regular expression pattern for basic email format validation
-            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
-            return Regex.IsMatch(email, pattern);
-        }
+        
         public ProductModel UpdateData(ProductModel data)
         {
             var products = GetAllData();
@@ -106,12 +101,7 @@ namespace ContosoCrafts.WebSite.Services
                 return null;
             }
 
-            // Add email validation here
-            if (!IsValidEmail(data.Email))
-            {
-                productData.ErrorMessage = "Invalid email address. Please provide a valid email.";
-                return productData;
-            }
+            
 
             // Update the data to the new passed-in values
             productData.Title = data.Title;
