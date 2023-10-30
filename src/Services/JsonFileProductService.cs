@@ -48,6 +48,60 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
         /// <summary>
+        /// Add Rating
+        /// 
+        /// Take in the product ID and the rating
+        /// If the rating does not exist, add it
+        /// Save the update
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="rating"></param>
+        public bool AddRating(string productId, int rating)
+        {
+            // If the ProductID is invalid, return
+            if (string.IsNullOrEmpty(productId))
+            {
+                return false;
+            }
+
+            var products = GetAllData();
+
+            // Look up the product, if it does not exist, return
+            var data = products.FirstOrDefault(x => x.Id.Equals(productId));
+            if (data == null)
+            {
+                return false;
+            }
+
+            // Check Rating for boundries, do not allow ratings below 0
+            if (rating < 0)
+            {
+                return false;
+            }
+
+            // Check Rating for boundries, do not allow ratings above 5
+            if (rating > 5)
+            {
+                return false;
+            }
+
+            // Check to see if the rating exist, if there are none, then create the array
+            if (data.Ratings == null)
+            {
+                data.Ratings = new int[] { };
+            }
+
+            // Add the Rating to the Array
+            var ratings = data.Ratings.ToList();
+            ratings.Add(rating);
+            data.Ratings = ratings.ToArray();
+
+            // Save the data back to the data store
+            SaveData(products);
+
+            return true;
+        }
+        /// <summary>
         /// DeleteData is a REST call to delete data
         /// </summary>
         /// <param name="id"></param>
@@ -90,7 +144,6 @@ namespace ContosoCrafts.WebSite.Services
             return data;
         }
 
-        
         public ProductModel UpdateData(ProductModel data)
         {
             var products = GetAllData();
@@ -101,8 +154,7 @@ namespace ContosoCrafts.WebSite.Services
                 return null;
             }
 
-            
-
+           
             // Update the data to the new passed-in values
             productData.Title = data.Title;
             productData.Age = data.Age;
@@ -132,31 +184,5 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        public void AddRating(string productId, int rating)
-        {
-            var products = GetProducts();
-            if (products.First(x => x.Id == productId).Ratings == null)
-            {
-                products.First(x => x.Id == productId).Ratings = new int[] { rating };
-            }
-            else
-            {
-                var ratings = products.First(x => x.Id == productId).Ratings.ToList();
-                ratings.Add(rating);
-                products.First(x => x.Id == productId).Ratings = ratings.ToArray();
-            }
-
-            using (var outputStream = File.OpenWrite(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    products
-                );
-            }
-        }
     }
 }
