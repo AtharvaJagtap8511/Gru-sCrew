@@ -162,7 +162,7 @@ namespace ContosoCrafts.WebSite.Services
             productData.Email = data.Email;
             productData.Url = data.Url;
             productData.Image = data.Image;
-
+            productData.Skills = data.Skills;
             SaveData(products);
 
             return productData;
