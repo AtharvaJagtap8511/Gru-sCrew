@@ -17,6 +17,7 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Product.Read
 {
+    // Class containing ReadTests for Read Page
     public class ReadTests
     {
         #region TestSetup
@@ -71,6 +72,7 @@ namespace UnitTests.Pages.Product.Read
         #endregion TestSetup
 
         #region OnGet
+        // Test case to check if on get event returns products
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {

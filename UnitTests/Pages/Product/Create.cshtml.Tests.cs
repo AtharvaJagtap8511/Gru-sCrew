@@ -28,7 +28,7 @@ namespace UnitTests.Pages.Product.Create
         #endregion TestSetup
 
         /// <summary>
-        /// Testing If on get the it is returnig all the comapny names
+        /// Testing If on get the it is returnig all the product names
         /// </summary> 
         #region OnGet
         [Test]
