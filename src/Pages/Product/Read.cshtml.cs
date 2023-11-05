@@ -7,6 +7,10 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    /// <summary>
+    /// Read Page
+    /// </summary>
+    /// 
     public class ReadModel : PageModel
     {
         // Data middletier
