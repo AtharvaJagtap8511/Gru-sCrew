@@ -10,17 +10,19 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Action</th>
+                <th>Read</th>
+                <th>Update</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var product in Model.Products)
             {
                 string[] titleparts = product.Title.Split('\n');
-                    <tr>
-                        <td>@titleparts[0]</td>
-                        <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
-                    </tr>
+                <tr>
+                    <td>@titleparts[0]</td>
+                    <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
+                    <td><a asp-page="Update" asp-route-id="@product.Id">Update</a></td>
+                </tr>
             }
         </tbody>
     </table>
