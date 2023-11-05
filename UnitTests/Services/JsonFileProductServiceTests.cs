@@ -8,10 +8,15 @@ using ContosoCrafts.WebSite.Models;
 
 namespace UnitTests.Pages.Product.AddRating
 {
+    /// <summary>
+    /// Class containing unit test cases to JsonFileProductService file
+    /// </summary>
     public class JsonFileProductServiceTests
     {
         #region TestSetup
-
+        /// <summary>
+        /// Test initialize
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
