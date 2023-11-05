@@ -10,20 +10,33 @@ using System;
 
 namespace ContosoCrafts.WebSite.Services
 {
+    /// <summary>
+    /// Service class writte to handle operations related to product model
+    /// </summary>
     public class JsonFileProductService
     {
+        /// <summary>
+        /// Setting the the web hosting environment.
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
 
+        //assigned IWebHostEnvironment to the public property
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        // gets the combined path of JSON file
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
+        /// <summary>
+        /// REST call to read all data from the JSON files
+        /// </summary>
+        /// <returns>complete data of companies</returns>
         public IEnumerable<ProductModel> GetProducts()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
@@ -144,6 +157,12 @@ namespace ContosoCrafts.WebSite.Services
             return data;
         }
 
+        /// <summary>
+        /// Find the data record
+        /// Update the fields
+        /// Save to the data store
+        /// </summary>
+        /// <param name="data"></param>
         public ProductModel UpdateData(ProductModel data)
         {
             var products = GetAllData();
@@ -168,7 +187,9 @@ namespace ContosoCrafts.WebSite.Services
             return productData;
         }
 
-
+        /// <summary>
+        /// Save All products data to storage
+        /// </summary>
         private void SaveData(IEnumerable<ProductModel> products)
         {
             using (var outputStream = File.Create(JsonFileName))
