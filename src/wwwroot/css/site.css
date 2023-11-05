@@ -97,11 +97,11 @@ a {
     border-color: #252152;
 }
 
-    .btn-primary:hover {
+.btn-primary:hover {
         color: #fff;
-        background-color: #e9a8a6;
-        border-color: #e9a8a6;
-    }
+        background-color: #808080; /* Change to grey color, you can use any shade of grey you prefer */
+        border-color: #808080; /* Change the border color to match the background color */
+}
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
