@@ -18,11 +18,13 @@ namespace UnitTests.Pages.Product.Delete
         public static DeleteModel pageModel;
 
         /// <summary>
-        /// Initializing test
+        /// Initializes the test context before each test method is executed.
         /// </summary>
         [SetUp]
         public void TestInitialize()
         {
+            //code for Initialization
+            
             pageModel = new DeleteModel(TestHelper.ProductService)
             {
             };

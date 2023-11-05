@@ -34,8 +34,13 @@ namespace UnitTests.Pages.Product.Read
         public static ReadModel pageModel;
 
         [SetUp]
+
+        /// <summary>
+        /// Initializes the test context before each test method is executed.
+        /// </summary>
         public void TestInitialize()
         {
+            //Code for initilization
             httpContextDefault = new DefaultHttpContext()
             {
                 //RequestServices = serviceProviderMock.Object,
