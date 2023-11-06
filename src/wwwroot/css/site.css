@@ -185,3 +185,30 @@ ul {
     background: -moz-linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
     background: linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
 }
+/* Add your custom styles here */
+
+label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
