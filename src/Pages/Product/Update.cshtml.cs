@@ -17,9 +17,8 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
-        /// Defualt Construtor
+        /// Default Constructor
         /// </summary>
-        /// <param name="logger"></param>
         /// <param name="productService"></param>
         public UpdateModel(JsonFileProductService productService)
         {
@@ -37,9 +36,11 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id"></param>
         public IActionResult OnGet(string id)
         {
+            // Load the product data based on the provided ID
             Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
             if (Product == null)
             {
+                // If the product is not found, redirect to the Index page
                 return RedirectToPage("./Index");
             }
             return Page();
@@ -56,14 +57,15 @@ namespace ContosoCrafts.WebSite.Pages.Product
         {
             if (!ModelState.IsValid)
             {
+                // If the model state is not valid, stay on the current page to show validation errors
                 return Page();
             }
 
+            // Call the data service to update the product data
             ProductService.UpdateData(Product);
 
+            // After updating, redirect to the Index page
             return RedirectToPage("./Index");
         }
-
-
     }
 }
