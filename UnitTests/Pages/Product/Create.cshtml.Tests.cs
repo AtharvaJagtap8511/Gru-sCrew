@@ -16,11 +16,12 @@ namespace UnitTests.Pages.Product.Create
         public static CreateModel pageModel;
 
         /// <summary>
-        /// Initializing test
+        /// Initializing test context before each test method is executed
         /// </summary>
         [SetUp]
         public void TestInitialize()
         {
+            //code for intialization
             pageModel = new CreateModel(TestHelper.ProductService)
             {
             };

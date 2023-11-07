@@ -20,11 +20,12 @@ namespace UnitTests.Pages.Product.Index
         public static IndexModel pageModel;
 
         /// <summary>
-        /// Test initializing
+        /// Test initialization before each test case is executed
         /// </summary>
         [SetUp]
         public void TestInitialize()
         {
+            //code for initialization
             pageModel = new IndexModel(TestHelper.ProductService)
             {
             };

@@ -29,7 +29,7 @@ namespace UnitTests.Pages.Product.Update
 
         /// <summary>
 
-        /// Test initialize
+        /// Test initialize before eache test case is executed
 
         /// </summary>
 
@@ -38,6 +38,7 @@ namespace UnitTests.Pages.Product.Update
         public void TestInitialize()
 
         {
+            //code for initialization
 
             pageModel = new UpdateModel(TestHelper.ProductService)
 
