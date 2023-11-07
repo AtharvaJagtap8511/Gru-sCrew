@@ -8,7 +8,7 @@ namespace ContosoCrafts.WebSite.Pages
     /// </summary>
     public class PrivacyModel : PageModel
     {
-        // Using ILogger to log error messages
+        //using Ilogger to log error messages
         private readonly ILogger<PrivacyModel> _logger;
 
         /// <summary>

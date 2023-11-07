@@ -1,4 +1,5 @@
 using System.Diagnostics;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -18,11 +19,11 @@ namespace ContosoCrafts.WebSite.Pages
         // Checking if the RequestId is not NULL or Empty
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-        // Using ILogger to log error messages
+        // Using Ilogger to log error messages
         private readonly ILogger<ErrorModel> _logger;
 
         /// <summary>
-        /// Logger for error model
+        /// logger for error model
         /// </summary>
         /// <param name="logger"></param>
         public ErrorModel(ILogger<ErrorModel> logger)

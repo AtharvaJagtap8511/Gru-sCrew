@@ -11,12 +11,12 @@ using System;
 namespace ContosoCrafts.WebSite.Services
 {
     /// <summary>
-    /// Service class written to handle operations related to the product model
+    /// Service class writte to handle operations related to product model
     /// </summary>
     public class JsonFileProductService
     {
         /// <summary>
-        /// Setting the web hosting environment.
+        /// Setting the the web hosting environment.
         /// </summary>
         /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
@@ -24,10 +24,10 @@ namespace ContosoCrafts.WebSite.Services
             WebHostEnvironment = webHostEnvironment;
         }
 
-        // Assigned IWebHostEnvironment to the public property
+        //assigned IWebHostEnvironment to the public property
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        // Gets the combined path of the JSON file
+        // gets the combined path of JSON file
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
@@ -60,7 +60,6 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
-
         /// <summary>
         /// Add Rating
         /// 
@@ -87,19 +86,19 @@ namespace ContosoCrafts.WebSite.Services
                 return false;
             }
 
-            // Check Rating for boundaries, do not allow ratings below 0
+            // Check Rating for boundries, do not allow ratings below 0
             if (rating < 0)
             {
                 return false;
             }
 
-            // Check Rating for boundaries, do not allow ratings above 5
+            // Check Rating for boundries, do not allow ratings above 5
             if (rating > 5)
             {
                 return false;
             }
 
-            // Check to see if the rating exists; if there are none, then create the array
+            // Check to see if the rating exist, if there are none, then create the array
             if (data.Ratings == null)
             {
                 data.Ratings = new int[] { };
@@ -115,7 +114,6 @@ namespace ContosoCrafts.WebSite.Services
 
             return true;
         }
-
         /// <summary>
         /// DeleteData is a REST call to delete data
         /// </summary>
@@ -123,7 +121,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns></returns>
         public ProductModel DeleteData(string id)
         {
-            // Get the current set and append the new record to it
+            // Get the current set, and append the new record to it
             var dataSet = GetAllData();
             var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
 
@@ -136,7 +134,7 @@ namespace ContosoCrafts.WebSite.Services
 
         /// <summary>
         /// Create a new product using default values
-        /// After creating, the user can update to set values
+        /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
         public ProductModel CreateData()
@@ -150,7 +148,7 @@ namespace ContosoCrafts.WebSite.Services
                 Image = "",
             };
 
-            // Get the current set and append the new record to it because IEnumerable does not have Add
+            // Get the current set, and append the new record to it becuase IEnumerable does not have Add
             var dataSet = GetAllData();
             dataSet = dataSet.Append(data);
 
@@ -175,6 +173,7 @@ namespace ContosoCrafts.WebSite.Services
                 return null;
             }
 
+           
             // Update the data to the new passed-in values
             productData.Title = data.Title;
             productData.Age = data.Age;
@@ -205,5 +204,6 @@ namespace ContosoCrafts.WebSite.Services
                 );
             }
         }
+
     }
 }

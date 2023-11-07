@@ -17,8 +17,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
-        /// Default Constructor
+        /// Defualt Construtor
         /// </summary>
+        /// <param name="logger"></param>
         /// <param name="productService"></param>
         public DeleteModel(JsonFileProductService productService)
         {
@@ -57,7 +58,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             {
                 return Page();
             }
-            // Below we delete the data using the product ID
+            //Below we delete the data using product ID
             ProductService.DeleteData(Product.Id);
 
             return RedirectToPage("./Index");

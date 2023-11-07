@@ -5,70 +5,45 @@ using System.Text.Json.Serialization;
 namespace ContosoCrafts.WebSite.Models
 {
     /// <summary>
-    /// Model class for a Product.
+    /// Model class for Product
     /// </summary>
     public class ProductModel
     {
-        /// <summary>
-        /// Gets or sets the Product ID.
-        /// </summary>
+        // get or set the Product ID
         public string Id { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Maker of the product.
-        /// </summary>
+        // get or set the Maker of the product
         public string Maker { get; set; }
 
-        /// <summary>
-        /// Gets or sets the image URL to JSON.
-        /// </summary>
+        //get or set the image URL to JSON
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Age of the Product.
-        /// </summary>
+        //get or set the Age of the Profile
         public int Age { get; set; }
 
-        /// <summary>
-        /// Gets or sets the URL of the Product.
-        /// </summary>
+        //get or set the image URL to JSON
         public string Url { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Title of the Product.
-        /// </summary>
+        //get or set the Title of the Profile
         public string Title { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Skills of the Product.
-        /// </summary>
+        //get or set the Skills of the Profile
         public string Skills { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Description of the Product.
-        /// </summary>
+        //get or set the Description of the Profile
         public string Description { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Email of the Product.
-        /// </summary>
+        //get or set the Email of the Profile
         public string Email { get; set; }
 
-        /// <summary>
-        /// Gets or sets the Ratings of the Product.
-        /// </summary>
+        //get or set the Ratings of the Product
         public int[] Ratings { get; set; }
-
-        /// <summary>
-        /// Gets or sets an error message.
-        /// </summary>
         public string ErrorMessage { get; set; }
 
-        /// <summary>
-        /// Uses JsonSerializer to serialize the ProductModel to a JSON string.
-        /// </summary>
-        /// <returns>A JSON representation of the object.</returns>
+        //JsonSerializer to serialize ProductModel
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
+
+
     }
 }
