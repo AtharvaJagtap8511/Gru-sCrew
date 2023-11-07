@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
@@ -23,7 +21,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         // Data Service
         public JsonFileProductService ProductService { get; }
-        
+
         // Collection of the Data
         public IEnumerable<ProductModel> Products { get; private set; }
 

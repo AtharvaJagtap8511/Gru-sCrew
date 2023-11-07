@@ -59,19 +59,6 @@
     "ErrorMessage": null
   },
   {
-    "Id": "sailorhg-kit",
-    "Maker": "sailorhg",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrqblrMVIFH5opT2uYDtlbiXqw_Y8gEId_g\u0026usqp=CAU",
-    "Age": 0,
-    "Url": "https://twitter.com/sailorhg/status/1090122822007963648",
-    "Title": "Emma Williams",
-    "Skills": "Operating Systems, Cyber Security",
-    "Description": "Excited to pass on my skills on cyber security and OS.",
-    "Email": null,
-    "Ratings": null,
-    "ErrorMessage": null
-  },
-  {
     "Id": "sailorhg-led",
     "Maker": "sailorhg",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOfIYw15JTC2Z5mdjSq1QjeFvLZF9UNU-BWA\u0026usqp=CAU",
@@ -80,19 +67,6 @@
     "Title": "Daniel Turner",
     "Skills": "Software Testing, HCI(Human Computer Interaction)",
     "Description": "I am a digital magician weaving the art of software testing and the spell of HCI for seamless user experience.",
-    "Email": null,
-    "Ratings": null,
-    "ErrorMessage": null
-  },
-  {
-    "Id": "vogueandcode-hipster-dev-bro",
-    "Maker": "vogueandcode",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCcJKlkD0jgxu_zvB-2QiuD7V3YAq75r9NtA\u0026usqp=CAU",
-    "Age": 0,
-    "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
-    "Title": "William Smith",
-    "Skills": "Database Designing and Architecture",
-    "Description": "I am expert in Database designing and architecture and have worked on different projects for designing the database.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
