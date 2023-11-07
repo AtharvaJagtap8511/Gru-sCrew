@@ -81,15 +81,7 @@ namespace UnitTests.Pages.Product.Delete
         /// <summary>
         /// Testing OnPost valid should return all products
         /// </summary>
-
-        /// <summary>
-
-        ///  Testing If on POST the it is returnig all the product names
-
-        /// </summary>
-
         #region OnPost
-
         [Test]
 
         public void OnPost_Valid_Should_Return_Products()
@@ -119,8 +111,6 @@ namespace UnitTests.Pages.Product.Delete
 
             var result = pageModel.OnPost() as RedirectToPageResult;
 
-
-
             // Assert
 
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
@@ -142,18 +132,13 @@ namespace UnitTests.Pages.Product.Delete
 
             // Arrange
 
-
-
             // Force an invalid error state
 
             pageModel.ModelState.AddModelError("bogus", "bogus error");
 
-
-
             // Act
 
             var result = pageModel.OnPost() as ActionResult;
-
 
 
             // Assert
