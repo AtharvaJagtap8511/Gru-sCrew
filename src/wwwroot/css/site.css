@@ -257,3 +257,31 @@ input[type="submit"] {
 .cool-button:hover {
     padding: 5px 10px; /* Maintain the button size on hover */
 }
+.custom-button {
+    color: white;
+    background-color: grey;
+    /* You can adjust the shade of grey by using different color values, e.g., #808080 */
+}
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #555; /* Add a border to the table */
+}
+
+    .custom-table th, .custom-table td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .custom-table th {
+        background-color: #333; /* Dark background color for header cells */
+        color: white; /* White text color for header cells */
+    }
+
+    .custom-table tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light grey background for even rows */
+    }
+
+    .custom-table tr:hover {
+        background-color: #ddd; /* Hover effect for rows */
+    }
