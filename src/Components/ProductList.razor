@@ -1,3 +1,5 @@
+@page "/products"
+
 @using ContosoCrafts.WebSite.Models
 @using ContosoCrafts.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
@@ -19,7 +21,7 @@
         // If filter is enabled, we will filter data based on title
         if (FilterData)
         {
-            productList = productList.Where(m => m.Title.Contains(FilterDataString));
+            productList = productList.Where(m => m.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase));
         }
         if (productList.Any())
         {
@@ -35,7 +37,7 @@
                     <div class="card-footer">
                         <small class="text-muted">
                             <button @onclick="(e => SelectProduct(product.Id))"
-                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                                    data-toggle="modal" data-target="#productModal" class="btn btn-primary">
                                 Details
                             </button>
                         </small>
@@ -45,8 +47,6 @@
         }
     }
 </div>
-
-
 
 @if (selectedProduct != null)
 {
@@ -107,7 +107,16 @@
     void SelectProduct(string productId)
     {
         selectedProductId = productId;
-        selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+        if (string.IsNullOrEmpty(FilterDataString))
+        {
+            selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+        }
+        else
+        {
+            selectedProduct = ProductService.GetProducts()
+                .FirstOrDefault(x => x.Id == productId && x.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase));
+        }
+
         GetCurrentRating();
     }
 
@@ -128,33 +137,42 @@
             voteLabel = voteCount > 1 ? "Votes" : "Vote";
             currentRating = selectedProduct.Ratings.Sum() / voteCount;
         }
-
-        System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
     void SubmitRating(int rating)
-
     {
-
-        System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
         ProductService.AddRating(selectedProductId, rating);
         SelectProduct(selectedProductId);
     }
+
     void UpdateFilterText(string text)
     {
         FilterDataString = text;
+        if (!string.IsNullOrEmpty(text))
+        {
+            EnableFilterData();
+        }
+        else
+        {
+            ClearFilterData();
+        }
     }
 
     void EnableFilterData()
     {
-        // If the Filter is enabled, set the filter flag
-
+        // Set the filter flag to true to enable filtering
         FilterData = true;
     }
 
     void ClearFilterData()
     {
-        // If the Filter is enabled, set the filter flag
+        // Clear the filter text
+        FilterDataString = "";
+
+        // Disable filtering by resetting the flag
         FilterData = false;
+
+        // Re-select the product to refresh the display
+        SelectProduct(selectedProductId);
     }
 }
