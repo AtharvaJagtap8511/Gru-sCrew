@@ -213,3 +213,47 @@ input[type="submit"] {
     input[type="submit"]:hover {
         background-color: #0056b3;
     }
+
+.cool-button {
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cool-button:hover {
+    transform: scale(1.1);
+    background-color: #e1e1e1; /* Light gray background color on hover */
+}
+
+.update-button::before {
+    content: '\270E'; /* Unicode for a pencil symbol (✎) */
+    margin-right: 5px; /* Add some spacing between the icon and the text */
+}
+
+.read-button::before {
+    content: '\1F4D6'; /* Unicode for a book symbol (📖) */
+    margin-right: 5px; /* Add some spacing between the icon and the text */
+}
+
+.delete-button::before {
+    content: '\1F5D1'; /* Unicode for a dustbin symbol (🗑️) */
+    margin-right: 5px; /* Add some spacing between the icon and the text */
+}
+
+.read-button:hover::before {
+    content: '\1F4D6'; /* Unicode for a book symbol (📖) */
+    margin-right: 0; /* Remove the spacing between the icon and the text on hover */
+}
+
+.cool-button:hover::after {
+    content: ''; /* Hide the text on hover by using an empty content */
+}
+
+.cool-button:hover {
+    padding: 5px 10px; /* Maintain the button size on hover */
+}

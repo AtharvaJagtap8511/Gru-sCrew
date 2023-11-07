@@ -58,7 +58,8 @@ Included items must then not match any entries in the exclude list to remain inc
                 <Function>.*\.Startup.*</Function>
                 <Function>.*\.IdentityHostingStartup.*</Function>
                 <Function>.*\.ConfigurationManager.*</Function>
-              </Exclude>
+				 <Function>^.*\.MoveNext\(\).*$</Function>
+			  </Exclude>
             </Functions>
 
             <!-- Match attributes on any code element: -->
