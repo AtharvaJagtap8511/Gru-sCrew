@@ -27,7 +27,7 @@ namespace UnitTests.Pages.Error
         public void TestInitialize()
 
         {
-
+            //code for intialization
             var MockLoggerDirect = Mock.Of<ILogger<ErrorModel>>();
             pageModel = new ErrorModel(MockLoggerDirect)
 

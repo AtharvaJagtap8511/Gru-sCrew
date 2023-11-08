@@ -20,6 +20,7 @@ namespace UnitTests.Pages.Product.AddRating
         [SetUp]
         public void TestInitialize()
         {
+            //code for intialization
         }
 
         #endregion TestSetup
