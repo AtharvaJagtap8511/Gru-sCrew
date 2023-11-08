@@ -3,7 +3,7 @@ using ContosoCrafts.WebSite.Pages.Product;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 
- 
+
 
 namespace UnitTests.Pages.Product.Update
 
@@ -84,6 +84,10 @@ namespace UnitTests.Pages.Product.Update
 
             Assert.AreEqual("James Johnson", pageModel.Product.Title);
 
+            // Reset
+            // This should remove the error added
+            pageModel.ModelState.Clear();
+
         }
 
 
@@ -113,6 +117,12 @@ namespace UnitTests.Pages.Product.Update
             // Assert
 
             Assert.AreEqual("./Index", result.PageName);
+
+            // Reset
+            // This should remove the error we added
+
+            pageModel.ModelState.Clear();
+
 
         }
 
@@ -166,6 +176,10 @@ namespace UnitTests.Pages.Product.Update
 
             Assert.AreEqual(true, result.PageName.Contains("Index"));
 
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
+
         }
 
 
@@ -201,6 +215,10 @@ namespace UnitTests.Pages.Product.Update
             // Assert
 
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
+
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
 
         }
 
