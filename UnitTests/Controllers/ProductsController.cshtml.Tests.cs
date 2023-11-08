@@ -9,11 +9,11 @@ using static ContosoCrafts.WebSite.Controllers.ProductsController;
 namespace UnitTests.Controllers
 {
     /// <summary>
-    /// Class containing unit test cases to ProductController
+    /// Class containing unit test cases for ProductController
     /// </summary>
     public class ProductControllerTests
     {
-        //Creating and instance
+        // Creating an instance
         public static ProductsController testProductController;
 
         /// <summary>
@@ -33,12 +33,12 @@ namespace UnitTests.Controllers
         [Test]
         public void Get_Valid_Should_Return_List_Of_Products()
         {
-            //Arrange
+            // Arrange
             var data = testProductController.Get().ToList();
 
-            //Act
+            // Act
 
-            //Assert
+            // Assert
             Assert.AreEqual(typeof(List<ProductModel>), data.GetType());
         }
 
@@ -49,23 +49,24 @@ namespace UnitTests.Controllers
         public void Get_Valid_ToString_Should_Return_String()
         {
             {
-                //Arrange
+                // Arrange
                 var data = testProductController.Get().FirstOrDefault().ToString();
 
-                //Act
+                // Act
 
-                //Assert
+                // Assert
                 Assert.AreEqual(typeof(string), data.GetType());
             }
         }
+
         /// <summary>
         /// Testing patch valid should return ok
         /// </summary>
         [Test]
         public void Patch_Valid_Should_Return_Ok()
         {
-            //Arrange
-            //A new variable of type RatingRequest
+            // Arrange
+            // A new variable of type RatingRequest
             var data = new RatingRequest
             {
                 ProductId = "jenlooper-cactus",
@@ -74,10 +75,10 @@ namespace UnitTests.Controllers
             // A variable to hold the result
             var result = testProductController.Patch(data);
 
-            //Act
+            // Act
             var okResult = result as OkResult;
 
-            //Assert
+            // Assert
             Assert.AreEqual(200, okResult.StatusCode);
         }
     }
