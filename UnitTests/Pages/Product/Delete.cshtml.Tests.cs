@@ -24,7 +24,7 @@ namespace UnitTests.Pages.Product.Delete
         public void TestInitialize()
         {
             //code for Initialization
-            
+
             pageModel = new DeleteModel(TestHelper.ProductService)
             {
             };
@@ -42,24 +42,20 @@ namespace UnitTests.Pages.Product.Delete
         {
 
             // Arrange
-
-
-
             // Act
 
             pageModel.OnGet("jenlooper-cactus");
-
-
-
             // Assert
 
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
 
             Assert.AreEqual("James Johnson", pageModel.Product.Title);
 
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
+
         }
-
-
 
         /// <summary>
         /// Testing if OnGet returns products when bogus id is passed
@@ -75,13 +71,25 @@ namespace UnitTests.Pages.Product.Delete
 
             // Assert
             Assert.AreEqual("./Index", result.PageName);
+
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
         }
         #endregion OnGet
 
         /// <summary>
         /// Testing OnPost valid should return all products
         /// </summary>
+
+        /// <summary>
+
+        ///  Testing If on POST the it is returnig all the product names
+
+        /// </summary>
+
         #region OnPost
+
         [Test]
 
         public void OnPost_Valid_Should_Return_Products()
@@ -103,6 +111,7 @@ namespace UnitTests.Pages.Product.Delete
 
                 Image = "image"
 
+
             };
 
 
@@ -111,11 +120,17 @@ namespace UnitTests.Pages.Product.Delete
 
             var result = pageModel.OnPost() as RedirectToPageResult;
 
+
+
             // Assert
 
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
 
             Assert.AreEqual(true, result.PageName.Contains("Index"));
+
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
 
         }
 
@@ -132,22 +147,29 @@ namespace UnitTests.Pages.Product.Delete
 
             // Arrange
 
+
+
             // Force an invalid error state
 
             pageModel.ModelState.AddModelError("bogus", "bogus error");
+
+
 
             // Act
 
             var result = pageModel.OnPost() as ActionResult;
 
-
             // Assert
 
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
 
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
+
         }
 
-        #endregion OnPost
+        #endregion OnPost
 
-    }
+    }
 }
