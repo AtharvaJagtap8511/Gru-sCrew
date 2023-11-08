@@ -9,7 +9,7 @@ namespace ContosoCrafts.WebSite.Pages
     /// Using ResponseCache attribute to set response caching headers.
     /// Class is used to handle operations related to Errors
     /// </summary>
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class ErrorModel : PageModel
     {
         // Get or Set RequestId
