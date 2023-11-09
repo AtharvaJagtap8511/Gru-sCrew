@@ -6,16 +6,16 @@ using ContosoCrafts.WebSite.Pages.Product;
 namespace UnitTests.Pages.Product.Index
 {
     /// <summary>
-    /// Class containing unit test cases to Index page
+    /// Class containing unit test cases for the Index page
     /// </summary>
     public class IndexTests
     {
-        // creating an instance
+        // Creating an instance
         #region TestSetup
         public static PageContext pageContext;
 
         /// <summary>
-        /// creating an instance
+        /// Creating an instance
         /// </summary>
         public static IndexModel pageModel;
 
@@ -25,7 +25,7 @@ namespace UnitTests.Pages.Product.Index
         [SetUp]
         public void TestInitialize()
         {
-            //code for initialization
+            // Code for initialization
             pageModel = new IndexModel(TestHelper.ProductService)
             {
             };
@@ -33,7 +33,7 @@ namespace UnitTests.Pages.Product.Index
         #endregion TestSetup
 
         /// <summary>
-        ///  On making a get call the request should return all the products
+        /// On making a GET call, the request should return all the products
         /// </summary>
         #region OnGet
         [Test]

@@ -8,7 +8,7 @@ using ContosoCrafts.WebSite.Services;
 namespace ContosoCrafts.WebSite.Controllers
 {
     /// <summary>
-    /// Products controller is used to control the CRUDi actions to be performed for products.
+    /// Products controller is used to control the CRUD actions to be performed for products.
     /// </summary>
     [ApiController]
     [Route("[controller]")]
@@ -41,7 +41,7 @@ namespace ContosoCrafts.WebSite.Controllers
         public ActionResult Patch([FromBody] RatingRequest request)
         {
             ProductService.AddRating(request.ProductId, request.Rating);
-            
+
             return Ok();
         }
 

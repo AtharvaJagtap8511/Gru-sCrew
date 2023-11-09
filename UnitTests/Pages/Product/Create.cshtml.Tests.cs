@@ -5,12 +5,12 @@ using ContosoCrafts.WebSite.Pages.Product;
 namespace UnitTests.Pages.Product.Create
 {
     /// <summary>
-    /// Class containing unit test cases of create page
+    /// Class containing unit test cases for the create page
     /// </summary>
     public class CreateTests
     {
         /// <summary>
-        /// Creating insance of the model
+        /// Creating an instance of the model
         /// </summary>
         #region TestSetup
         public static CreateModel pageModel;
@@ -21,7 +21,7 @@ namespace UnitTests.Pages.Product.Create
         [SetUp]
         public void TestInitialize()
         {
-            //code for intialization
+            // Code for initialization
             pageModel = new CreateModel(TestHelper.ProductService)
             {
             };
@@ -29,7 +29,7 @@ namespace UnitTests.Pages.Product.Create
         #endregion TestSetup
 
         /// <summary>
-        /// Testing If on get the it is returnig all the product names
+        /// Testing if OnGet is valid and it is returning all the product names
         /// </summary> 
         #region OnGet
         [Test]
