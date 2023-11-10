@@ -19,8 +19,9 @@ namespace ContosoCrafts.WebSite.Models
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
-        // get or set the Age of the Profile
+        [Range(16, int.MaxValue, ErrorMessage = "Age must be 16 or older")]
         public int Age { get; set; }
+
 
         // get or set the image URL to JSON
         public string Url { get; set; }
@@ -42,6 +43,8 @@ namespace ContosoCrafts.WebSite.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid Email Format")]
         public string Email { get; set; }
+
+
 
         // get or set the Ratings of the Product
         public int[] Ratings { get; set; }
