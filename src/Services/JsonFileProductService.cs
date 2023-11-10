@@ -139,25 +139,22 @@ namespace ContosoCrafts.WebSite.Services
         /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
-        public ProductModel CreateData()
+        public ProductModel CreateProduct(ProductModel newProduct)
         {
-            var data = new ProductModel()
-            {
-                Id = System.Guid.NewGuid().ToString(),
-                Title = "Enter Title",
-                Description = "Enter Description",
-                Url = "Enter URL",
-                Image = "",
-            };
+            // Generate a unique ID for the new product
+            newProduct.Id = Guid.NewGuid().ToString();
 
-            // Get the current set, and append the new record to it because IEnumerable does not have Add
-            var dataSet = GetAllData();
-            dataSet = dataSet.Append(data);
+            // Get the current product list
+            var products = GetAllData().ToList();
+            products.Add(newProduct);
 
-            SaveData(dataSet);
+            // Save the updated product list
+            SaveData(products);
 
-            return data;
+            return newProduct;
+
         }
+
 
         /// <summary>
         /// Find the data record
