@@ -31,6 +31,10 @@ namespace ContosoCrafts.WebSite.Models
         // get or set the Skills of the Profile
         public string Skills { get; set; }
 
+        // get or set the Preference of the Profile
+        public string Preference { get; set; }
+
+
         // get or set the Description of the Profile
         public string Description { get; set; }
 
