@@ -8,7 +8,7 @@ namespace UnitTests.Pages.Product.Index
     /// <summary>
     /// Class containing unit test cases for the Index page
     /// </summary>
-    public class IndexTests
+    public class ReadTests
     {
         // Creating an instance
         #region TestSetup
