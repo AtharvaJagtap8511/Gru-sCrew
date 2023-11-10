@@ -35,6 +35,8 @@ namespace ContosoCrafts.WebSite.Models
         public string Description { get; set; }
 
         // get or set the Email of the Profile
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
         // get or set the Ratings of the Product
