@@ -39,8 +39,8 @@ namespace ContosoCrafts.WebSite.Models
         public string Description { get; set; }
 
         // get or set the Email of the Profile
-        [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid Email Format")]
         public string Email { get; set; }
 
         // get or set the Ratings of the Product
