@@ -23,8 +23,12 @@
 
             if (FilterData)
             {
-                productList = productList.Where(m => m.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase));
+                productList = productList.Where(m =>
+                m.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase) ||
+                m.Skills.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase)
+                );
             }
+
 
             if (productList.Any())
             {
