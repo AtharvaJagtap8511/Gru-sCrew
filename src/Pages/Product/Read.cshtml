@@ -15,6 +15,16 @@
     <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title' style="max-width: 35%; height: auto; display: block; margin: 0 auto 0 0;">
     <p class="card-text">@Model.Product.Description</p>
     <p class="card-text">Skills: @Model.Product.Skills</p>
+    <!-- Display Meetup Preference as uneditable radio buttons -->
+    <p class="card-text">
+        Meetup Preference:
+        <label>
+            <input type="radio" name="meetupPreference" value="Virtual" disabled @(Model.Product.Preference == "Virtual" ? "checked" : "") /> Virtual
+        </label>
+        <label>
+            <input type="radio" name="meetupPreference" value="Inperson" disabled @(Model.Product.Preference == "Inperson" ? "checked" : "") /> In Person
+        </label>
+    </p>
     <p class="card-text">Email: @Model.Product.Email</p>
     <p class="card-text">Age: @Model.Product.Age</p>
     <div class="row">

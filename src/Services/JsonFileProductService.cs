@@ -180,6 +180,7 @@ namespace ContosoCrafts.WebSite.Services
             productData.Url = data.Url;
             productData.Image = data.Image;
             productData.Skills = data.Skills;
+            productData.Preference = data.Preference;
             SaveData(products);
 
             return productData;

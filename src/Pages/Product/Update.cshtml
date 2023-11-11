@@ -28,11 +28,11 @@
         <div class="form-group">
             <label>Meetup Preference</label>
             <div class="form-check">
-                <input type="radio" asp-for="Product.Preference" class="form-check-input" value="a" id="preferenceA" />
+                <input type="radio" asp-for="Product.Preference" class="form-check-input" value="Virtual" id="Virtual" />
                 <label class="form-check-label" for="Virtual">Virtual</label>
             </div>
             <div class="form-check">
-                <input type="radio" asp-for="Product.Preference" class="form-check-input" value="b" id="preferenceB" />
+                <input type="radio" asp-for="Product.Preference" class="form-check-input" value="Inperson" id="Inperson" />
                 <label class="form-check-label" for="InPerson">In Person</label>
             </div>
             <span asp-validation-for="Product.Preference" class="text-danger"></span>
