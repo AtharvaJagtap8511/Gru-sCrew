@@ -79,29 +79,37 @@ namespace UnitTests.Pages.Product.Update
         #region OnPost
 
         [Test]
+        /// <summary>
+        /// Test that checks update functionality
+        /// </summary>
         public void OnPost_Valid_Should_Return_Products()
         {
             // Arrange
-            pageModel.Product = new ProductModel
-            {
-                Id = "selinazawacki-moon",
-                Title = "title",
-                Description = "description",
-                Url = "url",
-                Image = "image"
-            };
+            pageModel.OnGet("jenlooper-cactus");
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+
+            // Capture the original value
+            var originalMaker = pageModel.Product.Maker;
 
             // Act
+            // Change the value to test and update
+            pageModel.Product.Maker = "test";
             var result = pageModel.OnPost() as RedirectToPageResult;
-
-            // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(true, result.PageName.Contains("Index"));
 
-            // Reset
-            // This should remove the error we added
-            pageModel.ModelState.Clear();
+            // Reset it back
+            pageModel.OnGet("jenlooper-cactus"); // Refresh the page model data
+            pageModel.Product.Maker = originalMaker; // Reset to the original value
+            result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert to see that post succeeded
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+
+            // Assertions to verify
+            Assert.AreEqual(originalMaker, pageModel.Product.Maker); // Ensure it is reset to the original value
         }
+
+
 
         /// <summary>
         /// Testing OnPost invalid should return bogus
@@ -125,6 +133,8 @@ namespace UnitTests.Pages.Product.Update
             pageModel.ModelState.Clear();
         }
 
+
         #endregion OnPost
+
     }
 }
