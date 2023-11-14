@@ -1,26 +1,18 @@
-﻿using System.Linq;
-
-using Microsoft.AspNetCore.Mvc;
-
+﻿
+using System.Linq;
+using ContosoCrafts.WebSite.Models;
 using NUnit.Framework;
 
-using ContosoCrafts.WebSite.Models;
 
-namespace UnitTests.Pages.Product.AddRating
+namespace UnitTests.Services.TestJsonFileProductService
 {
-    /// <summary>
-    /// Class containing unit test cases to JsonFileProductService file
-    /// </summary>
     public class JsonFileProductServiceTests
     {
         #region TestSetup
-        /// <summary>
-        /// Test initialize
-        /// </summary>
+
         [SetUp]
         public void TestInitialize()
         {
-            //code for intialization
         }
 
         #endregion TestSetup
@@ -32,18 +24,23 @@ namespace UnitTests.Pages.Product.AddRating
         /// Test that the last data that was added was added correctly
         /// </summary>
         [Test]
-        public void AddRating_Valid_Product_Id_Rating_null_Should_Return_new_Array()
+        public void AddRating_Valid_ProductId_Return_true()
         {
             // Arrange
+
+            // Create Dummy Record with no prior Ratings
             // Get the Last data item
             var data = TestHelper.ProductService.GetAllData().Last();
 
             // Act
             // Store the result of the AddRating method (which is being tested)
-            var result = TestHelper.ProductService.AddRating(data.Id, 0);
+            bool validAdd = TestHelper.ProductService.AddRating(data.Id, 0);
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, validAdd);
+
+            // Reset
+            // Delete Dummy Record
         }
 
         /// <summary>
@@ -81,6 +78,19 @@ namespace UnitTests.Pages.Product.AddRating
             // Assert
             Assert.AreEqual(false, result);
         }
+        [Test]
+        public void UpdateData_WithNullData_ShouldReturnNull()
+        {
+            // Arrange
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            var result = TestHelper.ProductService.AddRating(null, 1);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+        
 
         /// <summary>
         /// REST Gets First Node of original data
@@ -109,6 +119,31 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(true, result);
             Assert.AreEqual(countOriginal + 1, dataNewList.Ratings.Length);
             Assert.AreEqual(5, dataNewList.Ratings.Last());
+        }
+        [Test]
+        public void UpdateData_Null_ProductData_Should_Return_Null()
+        {
+            // Arrange
+
+            // Create a dummy product with null values
+            var nullProduct = new ProductModel
+            {
+                Id = "dummy-id",
+                Title = null,
+                Description = null,
+                Email = null,
+                Url = null,
+                Image = null,
+                Skills = null,
+                Preference = null
+            };
+
+            // Act
+            // Store the result of the UpdateData method (which is being tested)
+            var result = TestHelper.ProductService.UpdateData(nullProduct);
+
+            // Assert
+            Assert.IsNull(result);
         }
 
         /// <summary>
@@ -182,6 +217,75 @@ namespace UnitTests.Pages.Product.AddRating
             Assert.AreEqual(1, dataNewList.Ratings.Last());
         }
         #endregion AddRating
+
+        #region CreateDummyProduct
+        /// <summary>
+        /// This will test our Service "JsonFileProductService" routines
+        /// Will create a dummy product, and also test for delete when we set it
+        /// back
+        /// </summary>
+        [Test]
+        public void Create_Valid_ProductId_Return_true()
+        {
+            // Arrange
+
+            // Create a dummy variable to insert. We will only put 3 fields (Good Enough)
+            var dummyData = new ProductModel
+            {
+
+                Id = "mike-test",
+                Title = "Scarecrow-costume",
+                Description = "From Wizard of OZ",
+                Url = "https://solarsystem.nasa.gov/planets/venus/overview/",
+                Image = "https://solarsystem.nasa.gov/system/news_items/list_view_images/1519_688_Venus_list.jpg"
+            };
+
+            // Act
+            var data = TestHelper.ProductService.CreateProduct(dummyData);
+
+            // Assert
+            Assert.IsNotNull(data);
+            Assert.AreEqual(true, TestHelper.ProductService.GetAllData().Any(x => x.Id == dummyData.Id));
+
+            // Reset
+            TestHelper.ProductService.DeleteData(dummyData.Id);
+
+        }
+
+        #endregion CreateDummyRecord
+
+        #region DeleteDummyProduct
+        /// <summary>
+        /// This will test our Service "JsonFileProductService" routines
+        /// Will create a dummy product, and also test for delete when we set it
+        /// back
+        /// </summary>
+        [Test]
+        public void Delete_Valid_ProductId_Return_true()
+        {
+            // Arrange
+
+            // Create a dummy variable to insert. We will only put 3 fields (Good Enough)
+            var dummyData = new ProductModel
+            {
+
+                Id = "mike-test",
+                Title = "Scarecrow-costume",
+                Description = "From Wizard of OZ",
+                Url = "https://solarsystem.nasa.gov/planets/venus/overview/",
+                Image = "https://solarsystem.nasa.gov/system/news_items/list_view_images/1519_688_Venus_list.jpg"
+            };
+
+            // Act
+            TestHelper.ProductService.CreateProduct(dummyData);
+
+            // Assert (Create, Delete, Do not find record)
+            Assert.AreEqual(true, TestHelper.ProductService.GetAllData().Any(x => x.Id == dummyData.Id));
+            TestHelper.ProductService.DeleteData(dummyData.Id);
+            Assert.AreEqual(false, TestHelper.ProductService.GetAllData().Any(x => x.Id == dummyData.Id));
+        }
+
+        #endregion DeleteDummyRecord
 
 
     }
