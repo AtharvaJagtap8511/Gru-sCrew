@@ -1,6 +1,8 @@
 using System.Linq;
+
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
+
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
@@ -11,14 +13,13 @@ namespace ContosoCrafts.WebSite.Pages.Product
     /// </summary>
     public class DeleteModel : PageModel
     {
-        /// <summary>
-        /// Data Middle tier (services)
-        /// </summary>
+        // Data middletier
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
-        /// Default Constructor
+        /// Defualt Construtor
         /// </summary>
+        /// <param name="logger"></param>
         /// <param name="productService"></param>
         public DeleteModel(JsonFileProductService productService)
         {
@@ -34,14 +35,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Loads the Data
         /// </summary>
         /// <param name="id"></param>
-        public IActionResult OnGet(string id)
+        public void OnGet(string id)
         {
             Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
-            if (Product == null)
-            {
-                return RedirectToPage("./Index");
-            }
-            return Page();
         }
 
         /// <summary>
@@ -53,12 +49,8 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <returns></returns>
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            // Below we delete the data using product ID
-            ProductService.DeleteData(Product.Id);
+
+            var data = ProductService.DeleteData(Product.Id);
 
             return RedirectToPage("./Index");
         }

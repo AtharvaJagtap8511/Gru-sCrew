@@ -1,112 +1,88 @@
-﻿using System.Linq;
+﻿
 using Microsoft.AspNetCore.Mvc;
+
 using NUnit.Framework;
+
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Models;
+using System.Linq;
 
-namespace UnitTests.Pages.Product.Delete
+namespace UnitTests.Pages.Product
 {
     /// <summary>
-    /// Class containing unit test cases for the Delete page
+    /// Provides unit testing for the Update page
     /// </summary>
     public class DeleteTests
     {
-        /// <summary>
-        /// Creating an instance of the model
-        /// </summary>
         #region TestSetup
+        // Declare the model of the Update page to be used in unit tests
         public static DeleteModel pageModel;
 
-        /// <summary>
-        /// Initializes the test context before each test method is executed.
-        /// </summary>
         [SetUp]
+        /// <summary>
+        /// Initializes mock Update page model for testing.
+        /// </summary>
         public void TestInitialize()
         {
-            // Code for Initialization
             pageModel = new DeleteModel(TestHelper.ProductService)
             {
             };
         }
+
         #endregion TestSetup
 
-        /// <summary>
-        /// Testing OnGet valid should return all products
-        /// </summary>
-        [Test]
-        public void OnGet_Valid_Should_Return_Products()
-        {
-            // Arrange
-            // Act
-            pageModel.OnGet("jenlooper-cactus");
-            // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("James Johnson", pageModel.Product.Title);
-            // Reset
-            // This should remove the error we added
-            pageModel.ModelState.Clear();
-        }
-
-        /// <summary>
-        /// Testing if OnGet returns products when a bogus id is passed
-        /// </summary>
         #region OnGet
         [Test]
-        public void OnGet_InValid_Id_Bogus_Should_Return_Products()
+        /// <summary>
+        /// Test that's loading the update page returns a non-empty list of products
+        /// </summary>
+        public void OnGet_Valid_Should_Return_Product()
         {
             // Arrange
+            // Grab the first item for testing purposes
+            var data = TestHelper.ProductService.GetAllData().First();
+
+
             // Act
-            var result = pageModel.OnGet("Bogus") as RedirectToPageResult;
+            pageModel.OnGet(data.Id);
+
             // Assert
-            Assert.AreEqual("./Index", result.PageName);
-            // Reset
-            // This should remove the error we added
-            pageModel.ModelState.Clear();
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, data.Id == pageModel.Product.Id);
         }
         #endregion OnGet
 
-        /// <summary>
-        /// Testing OnPost valid should return all products
-        /// </summary>
         #region OnPost
+        /// <summary>
+        /// valid data then return products
+        /// </summary>
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
             // Arrange
-            pageModel.Product = new ProductModel
+
+            // Create dummy data to insert
+            var dummyData = new ProductModel()
             {
-                Id = "selinazawacki-moon",
-                Title = "title",
-                Description = "description",
-                Url = "url",
-                Image = "image"
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Dummy Test Data",
+                Description = "Enter Description",
+                Url = "Enter URL",
+                Image = "",
             };
+
+            // First Create the product to delete
+            pageModel.Product = TestHelper.ProductService.CreateProduct(dummyData);
+
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;
+
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
-            // Reset
-            // This should remove the error we added
-            pageModel.ModelState.Clear();
-        }
 
-        /// <summary>
-        /// Testing OnPost invalid should return bogus
-        /// </summary>
-        [Test]
-        public void OnPost_InValid_Model_NotValid_Return_Page()
-        {
-            // Arrange
-            // Force an invalid error state
-            pageModel.ModelState.AddModelError("bogus", "bogus error");
-            // Act
-            var result = pageModel.OnPost() as ActionResult;
-            // Assert
-            Assert.AreEqual(false, pageModel.ModelState.IsValid);
-            // Reset
-            // This should remove the error we added
-            pageModel.ModelState.Clear();
+            // Confirm the item is deleted
+            Assert.AreEqual(null, TestHelper.ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
         }
         #endregion OnPost
     }
