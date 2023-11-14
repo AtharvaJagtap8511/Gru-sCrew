@@ -17,7 +17,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string v)
         {
             if (Product == null)
             {
