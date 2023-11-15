@@ -4,18 +4,41 @@ using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using static ContosoCrafts.WebSite.Controllers.ProductsController;
+using Bunit;
+using AngleSharp.Dom;
+using ContosoCrafts.WebSite.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UnitTests.Components
 {
-    public class ProductRazorTests
+    /// <summary>
+    /// Test class initialized.
+    /// </summary>
+    public class ProductListTests : BunitTestContext
     {
-        /// <summary>
-        /// You will need to configure this handler in the Web.config file of your 
-        /// web and register it with IIS before being able to use it. For more information
-        /// see the following link: https://go.microsoft.com/?linkid=8101007
-        /// </summary>
-        
+        #region TestSetup
+
+        [SetUp]
+        public void TestInitialize()
+        {
+        }
+
+        #endregion TestSetup
+        [Test]
+        public void ProductList_Default_Should_Return_Content()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+
+            // Act
+            var page = RenderComponent<ProductList>();
+
+            // Get the Cards retrned
+            var result = page.Markup;
+
+            // Assert
+            Assert.AreEqual(true, result.Contains("James Johnson"));
+        }
         
     }
 }
