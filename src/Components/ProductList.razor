@@ -43,7 +43,7 @@
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">
-                                <button @onclick="(e => SelectProduct(product.Id))"
+                                <button @onclick="(e => SelectProduct(product.Id))" id="Details_@product.Id"
                                         data-toggle="modal" data-target="#productModal" class="btn btn-primary">
                                     Details
                                 </button>
@@ -104,6 +104,7 @@
                             <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
                         }
                     }
+
                 </div>
             </div>
         </div>
