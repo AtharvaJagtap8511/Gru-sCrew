@@ -61,8 +61,10 @@
     }
 </div>
 
-@if (selectedProduct != null)
+@if (selectedProduct == null)
 {
+    selectedProduct = ProductService.GetAllData().First();
+}
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -106,7 +108,7 @@
             </div>
         </div>
     </div>
-}
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
