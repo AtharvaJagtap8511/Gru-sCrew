@@ -286,15 +286,20 @@ input[type="submit"] {
     }
 .btn-animation {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 15px 30px; /* Increased padding for a larger button */
+    background-color: #c5d6d4; /* Matched with the shade #d1dddb (adjust as needed) */
     color: #fff;
     text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    transition: transform 0.2s ease;
+    border: 2px solid #c5d6d4; /* Matched with the shade #d1dddb */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    font-size: 18px; /* Increased font size */
+    font-weight: bold; /* Bold text */
+    letter-spacing: 1px; /* Add a slight letter spacing */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-    .btn-animation:hover {
-        transform: scale(1.1);
+.btn-animation:hover {
+        background-color: #b1c3c1; /* Darker shade on hover */
+        transform: scale(1.05); /* Scale the button on hover */
+        box-shadow: 0 0 15px rgba(197, 214, 212, 0.5); /* Add a subtle box shadow on hover */
     }
