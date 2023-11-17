@@ -148,7 +148,10 @@ html {
 body {
     margin-bottom: 60px;
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1sbUIowhtDjfEKmZqRtdLlL-BQ9X66Bx9sA&usqp=CAU');
+    background-size: cover; /* This ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
 }
+
 
 p {
     font-family: 'PT Serif', serif;     /* Added by sheetal for dialog box*/
