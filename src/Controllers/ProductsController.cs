@@ -14,6 +14,10 @@ namespace ContosoCrafts.WebSite.Controllers
     [Route("[controller]")]
     public class ProductsController : ControllerBase
     {
+        /// <summary>
+        /// Constructor for Productscontroller
+        /// </summary>
+        /// <param name="productService"></param>
         public ProductsController(JsonFileProductService productService)
         {
             ProductService = productService;
@@ -50,7 +54,10 @@ namespace ContosoCrafts.WebSite.Controllers
         /// </summary>
         public class RatingRequest
         {
+            // get or set ProductId
             public string ProductId { get; set; }
+
+            //get or set Rating
             public int Rating { get; set; }
         }
     }
