@@ -306,3 +306,21 @@ input[type="submit"] {
         transform: scale(1.05); /* Scale the button on hover */
         box-shadow: 0 0 15px rgba(197, 214, 212, 0.5); /* Add a subtle box shadow on hover */
     }
+.custom-search-input {
+    border-radius: 0; /* Remove border-radius */
+}
+
+.rounded-pill {
+    border-radius: 50px; /* Add border-radius for a pill shape */
+}
+
+.btn-outline-primary,
+.btn-outline-danger {
+    width: 150px; /* Adjust the width of the buttons */
+}
+
+    .btn-outline-primary.rounded-pill:hover,
+    .btn-outline-danger.rounded-pill:hover {
+        background-color: #ffffff;
+        color: #343a40;
+    }

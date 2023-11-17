@@ -5,12 +5,21 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileProductService ProductService
 
-<div>
-    <div class="row">
-        <div class="col">
-            <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
-            <button @onclick="(e => EnableFilterData())" class="btn btn-primary">Filter</button>
-            <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Increased the column size -->
+            <div class="container rounded p-4">
+                <!-- Added a container with rounded edges and padding -->
+                <div class="input-group rounded-pill">
+                    <!-- Added the 'rounded-pill' class for a rounded search bar -->
+                    <input type="text" class="form-control custom-search-input border-0" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" placeholder="Search Skills...">
+                    <div class="input-group-append">
+                        <button @onclick="(e => EnableFilterData())" class="btn btn-outline-primary rounded-pill">Filter</button> <!-- Added the 'rounded-pill' class for rounded buttons -->
+                        <button @onclick="(e => ClearFilterData())" class="btn btn-outline-danger rounded-pill">Clear</button> <!-- Added the 'rounded-pill' class for rounded buttons -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
