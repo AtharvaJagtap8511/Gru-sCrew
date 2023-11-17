@@ -52,8 +52,8 @@
         </div>
 
         <div class="form-group">
-            <label>Profile Picture</label>
-            <input asp-for="Product.Image" class="form-control" />
+            <label for="profilePicture">Profile Picture</label>
+            <input asp-for="Product.Image" id="profilePicture" class="form-control" pattern="https?://.+" title="Please enter a valid URL starting with 'http://' or 'https://'" />
             <span asp-validation-for="Product.Image" class="text-danger"></span>
         </div>
 
