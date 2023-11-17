@@ -204,16 +204,18 @@ input.form-control {
 }
 
 input[type="submit"] {
-    background-color: #007BFF;
-    color: #fff;
+    background-color: rgba(152, 255, 152, 0.2); /* Light mint green with 80% opacity */
+    color: black;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 4px;
 }
 
+
+
     input[type="submit"]:hover {
-        background-color: #0056b3;
+        background-color: #343a40;
     }
 
 .cool-button {
