@@ -8,16 +8,20 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <!-- Increased the column size -->
             <div class="container rounded p-4">
-                <!-- Added a container with rounded edges and padding -->
                 <div class="input-group rounded-pill">
-                    <!-- Added the 'rounded-pill' class for a rounded search bar -->
                     <input type="text" class="form-control custom-search-input border-0" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" placeholder="Search Skills...">
                     <div class="input-group-append">
-                        <button @onclick="(e => EnableFilterData())" class="btn btn-outline-primary rounded-pill">Filter</button> <!-- Added the 'rounded-pill' class for rounded buttons -->
-                        <button @onclick="(e => ClearFilterData())" class="btn btn-outline-danger rounded-pill">Clear</button> <!-- Added the 'rounded-pill' class for rounded buttons -->
+                        <button @onclick="(e => EnableFilterData())" class="btn btn-outline-primary rounded-pill">Filter</button>
+                        <button @onclick="(e => ClearFilterData())" class="btn btn-outline-danger rounded-pill">Clear</button>
                     </div>
+                </div>
+                <div class="input-group rounded-pill mt-3">
+                    <select class="form-control" @onchange="(e) => UpdateAppointmentType(e.Value.ToString())">
+                        <option value="All">All Appointments</option>
+                        <option value="Virtual">Virtual Appointments</option>
+                        <option value="Inperson">Inperson Appointments</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -33,11 +37,11 @@
             if (FilterData)
             {
                 productList = productList.Where(m =>
-                m.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase) ||
-                m.Skills.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase)
+                (m.Title.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase) ||
+                m.Skills.Contains(FilterDataString, StringComparison.OrdinalIgnoreCase)) &&
+                (selectedAppointmentType == "All" || m.Preference == selectedAppointmentType)
                 );
             }
-
 
             if (productList.Any())
             {
@@ -64,7 +68,6 @@
         }
         catch (Exception ex)
         {
-            // Handle exceptions here, such as logging or displaying an error message.
             Console.WriteLine("An error occurred while fetching and rendering products: " + ex.Message);
         }
     }
@@ -74,51 +77,49 @@
 {
     selectedProduct = ProductService.GetAllData().First();
 }
-    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="card">
-                        <div class="card-img" style="background-image: url('@selectedProduct.Image');">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">@selectedProduct.Description</p>
-                        </div>
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('@selectedProduct.Image');">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@selectedProduct.Description</p>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    @if (voteCount == 0)
+            </div>
+            <div class="modal-footer">
+                @if (voteCount == 0)
+                {
+                    <span>Be the first to vote!</span>
+                }
+                else
+                {
+                    <span>@voteCount @voteLabel</span>
+                }
+                @for (int i = 1; i < 6; i++)
+                {
+                    var currentStar = i;
+                    if (i <= currentRating)
                     {
-                        <span>Be the first to vote!</span>
+                        <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
                     }
                     else
                     {
-                        <span>@voteCount @voteLabel</span>
+                        <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
                     }
-                    @for (int i = 1; i < 6; i++)
-                    {
-                        var currentStar = i;
-                        if (i <= currentRating)
-                        {
-                            <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
-                        }
-                        else
-                        {
-                            <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-                        }
-                    }
-
-                </div>
+                }
             </div>
         </div>
     </div>
-
+</div>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -128,6 +129,7 @@
     string selectedProductId;
     string FilterDataString = "";
     bool FilterData = false;
+    string selectedAppointmentType = "All"; // Default to "All" to show all appointments
 
     void SelectProduct(string productId)
     {
@@ -149,7 +151,6 @@
         }
         catch (Exception ex)
         {
-            // Handle exceptions here, such as logging or displaying an error message.
             Console.WriteLine("An error occurred while selecting the product: " + ex.Message);
         }
     }
@@ -176,7 +177,6 @@
         }
         catch (Exception ex)
         {
-            // Handle exceptions here, such as logging or displaying an error message.
             Console.WriteLine("An error occurred while calculating the current rating: " + ex.Message);
         }
     }
@@ -190,7 +190,6 @@
         }
         catch (Exception ex)
         {
-            // Handle exceptions here, such as logging or displaying an error message.
             Console.WriteLine("An error occurred while submitting the rating: " + ex.Message);
         }
     }
@@ -210,19 +209,18 @@
 
     void EnableFilterData()
     {
-        // Set the filter flag to true to enable filtering
         FilterData = true;
     }
 
     void ClearFilterData()
     {
-        // Clear the filter text
         FilterDataString = "";
-
-        // Disable filtering by resetting the flag
         FilterData = false;
-
-        // Re-select the product to refresh the display
         SelectProduct(selectedProductId);
+    }
+
+    void UpdateAppointmentType(string type)
+    {
+        selectedAppointmentType = type;
     }
 }
