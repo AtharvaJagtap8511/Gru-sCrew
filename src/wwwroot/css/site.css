@@ -30,11 +30,9 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 
-
     .modal .card {
         width: 100%; /* Make the card fill the modal */
     }
-
 
 
     .modal .card-img {
@@ -49,13 +47,11 @@ for details on configuring this project to bundle and minify static web assets. 
     }
 
 
-
 /* Keyframes for fadeIn animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
-
 
 
     to {
@@ -64,13 +60,11 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 
-
 /* Card Columns */
 .card-columns .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(37, 33, 82, 0.12), 0 4px 8px rgba(37, 33, 82, 0.06);
 }
-
 
 
 /* Card Footer */
@@ -92,16 +86,15 @@ a {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #252152;
-    border-color: #252152;
+    background-color: rgba(152, 255, 152, 0.2);
+    color: black;
+    padding: 10px 20px;
+    border-color: rgba(152, 255, 152, 0.2);
 }
 
-.btn-primary:hover {
-        color: #fff;
-        background-color: #808080; /* Change to grey color, you can use any shade of grey you prefer */
-        border-color: #808080; /* Change the border color to match the background color */
-}
+    .btn-primary:hover {
+        background-color: #343a40;
+    }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
@@ -154,7 +147,7 @@ body {
 
 
 p {
-    font-family: 'PT Serif', serif;     /* Added by sheetal for dialog box*/
+    font-family: 'PT Serif', serif; /* Added by sheetal for dialog box*/
 }
 
 h1 {
@@ -213,7 +206,6 @@ input[type="submit"] {
 }
 
 
-
     input[type="submit"]:hover {
         background-color: #343a40;
     }
@@ -229,10 +221,10 @@ input[type="submit"] {
     justify-content: center;
 }
 
-.cool-button:hover {
-    transform: scale(1.1);
-    background-color: #e1e1e1; /* Light gray background color on hover */
-}
+    .cool-button:hover {
+        transform: scale(1.1);
+        background-color: #e1e1e1; /* Light gray background color on hover */
+    }
 
 .update-button::before {
     content: '\270E'; /* Unicode for a pencil symbol (✎) */
@@ -261,11 +253,13 @@ input[type="submit"] {
 .cool-button:hover {
     padding: 5px 10px; /* Maintain the button size on hover */
 }
+
 .custom-button {
     color: white;
     background-color: grey;
     /* You can adjust the shade of grey by using different color values, e.g., #808080 */
 }
+
 .custom-table {
     width: 100%;
     border-collapse: collapse;
@@ -289,6 +283,7 @@ input[type="submit"] {
     .custom-table tr:hover {
         background-color: #ddd; /* Hover effect for rows */
     }
+
 .btn-animation {
     display: inline-block;
     padding: 15px 30px; /* Increased padding for a larger button */
@@ -303,11 +298,12 @@ input[type="submit"] {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-animation:hover {
+    .btn-animation:hover {
         background-color: #b1c3c1; /* Darker shade on hover */
         transform: scale(1.05); /* Scale the button on hover */
         box-shadow: 0 0 15px rgba(197, 214, 212, 0.5); /* Add a subtle box shadow on hover */
     }
+
 .custom-search-input {
     border-radius: 0; /* Remove border-radius */
 }
