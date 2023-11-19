@@ -7,6 +7,7 @@ using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Models;
 using System;
 using AngleSharp.Dom;
+using System.Diagnostics;
 
 namespace UnitTests.Components
 {
@@ -272,8 +273,10 @@ namespace UnitTests.Components
             // Get the all the unfiltered cards
             var preResult = page.Markup;
 
+            Debug.WriteLine("preresult", preResult);
+
             // Enter search term
-            filterText.Change("James");
+            filterText.Change("Donna");
 
             // Click filter button
             filterButton.Click();
@@ -287,9 +290,10 @@ namespace UnitTests.Components
             // Get the Cards returned after clearing filter
             var postResult = page.Markup;
 
+            Debug.WriteLine("postresult", postResult);
 
             // Assert
-            Assert.AreEqual(1, postResult.CompareTo(preResult));
+            Assert.AreEqual(preResult, postResult);
         }
         #endregion Search
 
