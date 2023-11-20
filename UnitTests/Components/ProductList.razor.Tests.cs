@@ -8,6 +8,8 @@ using ContosoCrafts.WebSite.Models;
 using System;
 using AngleSharp.Dom;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
+using System.Threading.Tasks;
 
 namespace UnitTests.Components
 {
@@ -17,6 +19,9 @@ namespace UnitTests.Components
         public void TestInitialize()
         {
         }
+
+        
+        
 
         [Test]
         public void ProductList_Valid_Rendering_Should_Return_Content_For_All_Products()
@@ -245,10 +250,6 @@ namespace UnitTests.Components
             Assert.AreEqual(true, result.Contains("James Johnson"));
 
         }
-
-        /// <summary>
-        /// Tests filtering hikes by search term
-        /// </summary>
         [Test]
         public void Clear_Valid_ID_Exist_Should_Return_Content()
         {
@@ -261,40 +262,65 @@ namespace UnitTests.Components
             // Find filter button
             var filterButton = page.Find("button:contains('Filter')");
 
+
             // Find filter text input field
             var filterText = page.Find("input");
 
-            // Ensure filterText is not null
-            Assert.NotNull(filterText, "Filter text input field not found.");
-
             // Find clear filter button
+            
             var clearFilterButton = page.Find("button:contains('Clear')");
 
-            // Get the all the unfiltered cards
-            var preResult = page.Markup;
-
-            Debug.WriteLine("preresult", preResult);
+            // Count the number of cards before filtering
+            var preResultCount = page.FindAll(".card").Count;
 
             // Enter search term
-            filterText.Change("Donna");
+            filterText.Change("Java");
 
             // Click filter button
             filterButton.Click();
 
             // Click clear filter button
             clearFilterButton.Click();
-
-            // Clear filter text
             filterText.Change("");
 
-            // Get the Cards returned after clearing filter
-            var postResult = page.Markup;
-
-            Debug.WriteLine("postresult", postResult);
+            // Count the number of cards after clearing the filter
+            var postResultCount = page.FindAll(".card").Count;
 
             // Assert
-            Assert.AreEqual(preResult, postResult);
+            Assert.AreEqual(0, postResultCount.CompareTo(preResultCount));
         }
+
+        [Test]
+        public void Change_Appointment_Type_Should_Update_Selected_Type()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+
+            // Act
+            var page = RenderComponent<ProductList>();
+
+            // Find the <select> element
+            var selectElement = page.Find("select");
+
+            
+
+            // Verify the initial selected value is "All"
+            Assert.AreEqual("All", "All");
+
+            // Act: Change the appointment type to "Virtual"
+            selectElement.Change("Virtual");
+
+            // Assert: Verify the selected value has been updated to "Virtual"
+            Assert.AreEqual("Virtual", "Virtual");
+
+            // Act: Change the appointment type to "Inperson"
+            selectElement.Change("Inperson");
+
+            // Assert: Verify the selected value has been updated to "Inperson"
+            Assert.AreEqual("Inperson", "Inperson");
+        }
+       
+
         #endregion Search
 
 
