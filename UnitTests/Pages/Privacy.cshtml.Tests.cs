@@ -4,8 +4,6 @@ using Moq;
 using NUnit.Framework;
 
 
- 
-
 namespace UnitTests.Pages.Privacy
 
 {
