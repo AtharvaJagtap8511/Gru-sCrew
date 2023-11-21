@@ -158,7 +158,7 @@
     int currentRating = 0;
     int voteCount = 0;
     string voteLabel;
-
+    bool voted = false;
     void GetCurrentRating()
     {
         try
@@ -185,8 +185,16 @@
     {
         try
         {
-            ProductService.AddRating(selectedProductId, rating);
-            SelectProduct(selectedProductId);
+            if (voted == false)
+            {
+                ProductService.AddRating(selectedProductId, rating);
+                voted = true;
+                SelectProduct(selectedProductId);
+            }
+            else
+            {
+                voteLabel = "you already voted";   
+            }
         }
         catch (Exception ex)
         {
