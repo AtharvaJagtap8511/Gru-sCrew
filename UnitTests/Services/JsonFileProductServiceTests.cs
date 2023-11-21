@@ -1,5 +1,4 @@
-﻿
-using System.Linq;
+﻿using System.Linq;
 using ContosoCrafts.WebSite.Models;
 using NUnit.Framework;
 
