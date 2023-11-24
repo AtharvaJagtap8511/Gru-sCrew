@@ -76,7 +76,7 @@
                 <input type="radio" name="meetupPreference" value="Inperson" disabled @(Model.Product.Preference == "Inperson" ? "checked" : "") /> In Person
             </label>
         </p>
-        <p class="card-text"><strong>Email:</strong> @Model.Product.Email</p>
+        <p class="card-text"><strong>Email:</strong><a href="mailto:@Model.Product.Email" target="_blank">@Model.Product.Email</a></p>
         <p class="card-text"><strong>Age:</strong> @Model.Product.Age</p>
         <div class="row">
             <div class="col-md-3 mx-auto">
