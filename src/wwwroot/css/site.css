@@ -197,8 +197,8 @@ input.form-control {
 }
 
 input[type="submit"] {
-    background-color: rgba(152, 255, 152, 0.2); /* Light mint green with 80% opacity */
-    color: black;
+    background-color: #343a40; /* Light mint green with 80% opacity */
+    color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -207,7 +207,7 @@ input[type="submit"] {
 
 
     input[type="submit"]:hover {
-        background-color: #343a40;
+        background-color: rgba(152, 255, 152, 0.2);
     }
 
 .cool-button {
