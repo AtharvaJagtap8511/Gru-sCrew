@@ -7,30 +7,83 @@
     ViewData["Title"] = "Read page";
 }
 
-<h3>Profile Information for @Model.Product.Title</h3>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif; /* Use the Roboto font for the entire page */
+    }
 
-<div class="content">
-   
-    <!-- Added by sheetal to resize image -->
-    <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title' style="max-width: 35%; height: auto; display: block; margin: 0 auto 0 0;">
-    <p class="card-text">@Model.Product.Description</p>
-    <p class="card-text">Skills: @Model.Product.Skills</p>
-    <p class="card-text"> Resume Link: <a href="@Model.Product.Url" target="_blank">@Model.Product.Title's Resume</a></p>
-    <!-- Display Meetup Preference as uneditable radio buttons -->
-    <p class="card-text">
-        Meetup Preference:
-        <label>
-            <input type="radio" name="meetupPreference" value="Virtual" disabled @(Model.Product.Preference == "Virtual" ? "checked" : "") /> Virtual
-        </label>
-        <label>
-            <input type="radio" name="meetupPreference" value="Inperson" disabled @(Model.Product.Preference == "Inperson" ? "checked" : "") /> In Person
-        </label>
-    </p>
-    <p class="card-text">Email: @Model.Product.Email</p>
-    <p class="card-text">Age: @Model.Product.Age</p>
-    <div class="row">
-        <div class="col-md-3">
-            <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary btn-block btn-sm">Update</a>
+    .container {
+        text-align: center;
+    }
+
+    h3 {
+        font-family: 'Roboto', sans-serif; /* Use the Roboto font for headers */
+        font-size: 24px; /* Increased font size */
+    }
+
+    .content {
+        font-size: 18px; /* Increased font size */
+    }
+
+    .image-frame {
+        display: inline-block;
+        border: 5px solid #000; /* Black border for the frame */
+        border-radius: 8px; /* Added border-radius for rounded corners */
+        overflow: hidden; /* Ensure the border doesn't enlarge the image */
+    }
+
+    img.card-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    p.card-text {
+        background-color: #fff; /* White background for the description box */
+        padding: 10px; /* Added padding for spacing within the box */
+        border-radius: 8px; /* Added border-radius for rounded corners */
+        margin-top: 10px; /* Added margin for spacing between elements */
+    }
+
+    .btn-primary {
+        font-size: 18px; /* Increased font size */
+        /* Other styles */
+    }
+
+    strong {
+        font-weight: bold;
+    }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<div class="container">
+    <h3>Profile Information for @Model.Product.Title</h3>
+
+    <div class="content">
+        <div class="image-frame">
+            <img class="card-img mx-auto d-block" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
         </div>
+        <p class="card-text"><strong>@Model.Product.Description</strong></p>
+        <p class="card-text"><strong>Skills:</strong> @Model.Product.Skills</p>
+        <p class="card-text"><strong>Resume Link:</strong> <a href="@Model.Product.Url" target="_blank">@Model.Product.Title's Resume</a></p>
+        <p class="card-text">
+            <strong>Meetup Preference:</strong>
+            <label>
+                <input type="radio" name="meetupPreference" value="Virtual" disabled @(Model.Product.Preference == "Virtual" ? "checked" : "") /> Virtual
+            </label>
+            <label>
+                <input type="radio" name="meetupPreference" value="Inperson" disabled @(Model.Product.Preference == "Inperson" ? "checked" : "") /> In Person
+            </label>
+        </p>
+        <p class="card-text"><strong>Email:</strong> @Model.Product.Email</p>
+        <p class="card-text"><strong>Age:</strong> @Model.Product.Age</p>
+        <div class="row">
+            <div class="col-md-3 mx-auto">
+                <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary btn-block btn-sm">
+                    <span style="font-size: 18px;"><strong>Update</strong></span>
+                </a>
             </div>
+        </div>
+    </div>
 </div>
