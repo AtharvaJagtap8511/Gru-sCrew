@@ -86,14 +86,14 @@ a {
 }
 
 .btn-primary {
-    background-color: rgba(152, 255, 152, 0.2);
-    color: black;
+    background-color: #343a40;
+    color: white;
     padding: 10px 20px;
     border-color: rgba(152, 255, 152, 0.2);
 }
 
     .btn-primary:hover {
-        background-color: #343a40;
+        background-color: rgba(152, 255, 152, 0.2);
     }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
