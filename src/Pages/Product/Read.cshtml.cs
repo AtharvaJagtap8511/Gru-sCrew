@@ -38,7 +38,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             if (Product == null)
             {
                 // If the product is not found, redirect to the Index page
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Error");
             }
             return Page();
         }
