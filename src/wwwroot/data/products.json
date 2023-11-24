@@ -8,7 +8,7 @@
     "Title": "James Johnson",
     "Skills": "Machine Learning, Computer Algorithms",
     "Preference": "Inperson",
-    "Description": "I am a skilled Computer techie specialized in Machine learning and Computer Algorithms.",
+    "Description": "James Johnson is a skilled Computer techie specialized in Machine learning and Computer Algorithms. With 22 years of age, James is adept at utilizing advanced technologies to solve complex problems. He is open to in-person collaborations and can be contacted via email at aaaa@aaa.edu. James has received mixed ratings, showcasing a range of experiences from different collaborators.",
     "Email": "aaaa@aaa.edu",
     "Ratings": [
       5,
@@ -29,7 +29,7 @@
     "Title": "Robert Zane",
     "Skills": "Web Application Developer, Python",
     "Preference": "Inperson",
-    "Description": "I have profound knowledge of Python and I work as Web Application Developer.",
+    "Description": "Robert Zane, aged 55, is a seasoned professional with profound knowledge of Python. As a web application developer, he brings extensive experience to the table. While specific ratings and email information are not provided, Robert\u0027s expertise in Python and web development make him a valuable resource for projects requiring these skills.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
@@ -43,7 +43,7 @@
     "Title": "Ava Smith",
     "Skills": "C, C\u002B\u002B, Java",
     "Preference": "Virtual",
-    "Description": "I am skilled in the basic programming languages and enthusiast to share my knowledge.",
+    "Description": "Ava Smith is a programming enthusiast skilled in the foundational languages of C, C\u002B\u002B, and Java. Despite the absence of specific age information, Ava is eager to share her knowledge virtually. Her passion for basic programming languages makes her an excellent mentor for those looking to build a strong programming foundation.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
@@ -57,7 +57,7 @@
     "Title": "Donna Paulsen",
     "Skills": "Java, Mobile App Development",
     "Preference": "Inperson",
-    "Description": "I am skilled in Java and will be the right person to come to for any app development need.",
+    "Description": "Donna Paulsen, at the age of 22, is a skilled individual with expertise in Java and mobile app development. If you have any app development needs, Donna is the right person to approach. She prefers in-person collaborations, providing a hands-on and interactive experience for effective project development.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
@@ -71,7 +71,7 @@
     "Title": "Emma Williams",
     "Skills": "Operating Systems, Cyber Security",
     "Preference": "Virtual",
-    "Description": "Excited to pass on my skills on cyber security and OS.",
+    "Description": "Emma Williams is excited to share her skills in operating systems and cyber security. While specific age information is not provided, Emma prefers virtual interactions. Her expertise in cybersecurity and operating systems makes her a valuable resource for individuals seeking to enhance their knowledge in these crucial areas.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
@@ -85,7 +85,7 @@
     "Title": "Daniel Turner",
     "Skills": "Software Testing, HCI(Human Computer Interaction)",
     "Preference": "Virtual",
-    "Description": "I am a digital magician weaving the art of software testing and the spell of HCI for seamless user experience.",
+    "Description": "Daniel Turner describes himself as a digital magician, weaving the art of software testing and the spell of HCI for seamless user experiences. While specific age information is not provided, Daniel prefers virtual interactions. His unique blend of skills in software testing and HCI can contribute to creating user-friendly digital experiences.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
@@ -99,7 +99,7 @@
     "Title": "William Smith",
     "Skills": "Database Designing and Architecture",
     "Preference": "Inperson",
-    "Description": "I am expert in Database designing and architecture and have worked on different projects for designing the database.",
+    "Description": "William Smith is an expert in database designing and architecture. With a focus on in-person collaborations, William has worked on various projects involving the design of databases. While specific age information, ratings, and email details are not provided, William\u0027s expertise in database architecture positions him as a valuable resource for projects in need of robust database solutions.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
@@ -113,7 +113,7 @@
     "Title": "Amelia Jackson",
     "Skills": "Big Data, Cloud Computing",
     "Preference": "Virtual",
-    "Description": "I am a tech visionary mastering the orchestra of big data and cloud computing to scult the future of digital landscapes.",
+    "Description": "Amelia Jackson is a tech visionary who masterfully orchestrates the realms of big data and cloud computing. While specific age information is not provided, Amelia prefers virtual interactions. Her skills in navigating the landscape of big data and cloud computing make her a forward-thinking individual capable of sculpting the future of digital landscapes.",
     "Email": null,
     "Ratings": null,
     "ErrorMessage": null
@@ -127,9 +127,11 @@
     "Title": "Alex Wheeler",
     "Skills": "IoT, Linux and Unix Skills",
     "Preference": "Virtual",
-    "Description": "I am the guy you can come to if you need to learn Linux/Unix skills.",
+    "Description": "Alex Wheeler is the go-to person for those seeking to learn Linux and Unix skills, as well as expertise in IoT. While specific age information is not provided, Alex prefers virtual interactions. His proficiency in Linux, Unix, and IoT positions him as a knowledgeable resource for individuals looking to enhance their skills in these areas.",
     "Email": null,
-    "Ratings": null,
+    "Ratings": [
+      2
+    ],
     "ErrorMessage": null
   }
 ]
