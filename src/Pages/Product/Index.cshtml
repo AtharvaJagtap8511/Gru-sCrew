@@ -18,27 +18,36 @@
         <tbody>
             @foreach (var product in Model.Products)
             {
-                string[] titleparts = product.Title.Split('\n');
-                <tr>
-                    <td>@titleparts[0]</td>
-                    <td>
-                        <a asp-page="Read" asp-route-id="@product.Id" class="btn cool-button read-button">
-                            Read
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-page="Update" asp-route-id="@product.Id" class="btn cool-button update-button">
-                            <span class="icon">Update</span>
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-page="Delete" asp-route-id="@product.Id" class="btn cool-button delete-button">
-                            Delete
-                        </a>
-                    </td>
-
-                </tr>
+                @if (product != null && product.Title != null)
+                {
+                    string[] titleparts = product.Title.Split('\n');
+                    <tr>
+                        <td>@titleparts[0]</td>
+                        <td>
+                            <a asp-page="Read" asp-route-id="@product.Id" class="btn cool-button read-button">
+                                Read
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-page="Update" asp-route-id="@product.Id" class="btn cool-button update-button">
+                                <span class="icon">Update</span>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-page="Delete" asp-route-id="@product.Id" class="btn cool-button delete-button">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">Product data is null or incomplete.</td>
+                    </tr>
+                }
             }
         </tbody>
+
     </table>
 </div>
