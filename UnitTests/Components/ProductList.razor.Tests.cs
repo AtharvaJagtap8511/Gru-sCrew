@@ -38,7 +38,7 @@ namespace UnitTests.Components
             
             
             Assert.NotNull(result);
-            Assert.IsTrue(result.Contains("James"));
+            Assert.IsTrue(result.Contains("Details"));
             
         }
 
@@ -256,44 +256,46 @@ namespace UnitTests.Components
             Assert.AreEqual(true, result.Contains("James Johnson"));
 
         }
+        
         [Test]
-        public void Clear_Valid_ID_Exist_Should_Return_Content()
+
+        /// <summary>
+        /// Test case for clearing the text of searching paw and return the original list
+        /// </summary>
+        public void CLearText_Should_CLear_The_Search_Input_And_Return_Content()
         {
-            // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-
-            // Act
-            var page = RenderComponent<ProductList>();
-
-            // Find filter button
-            var filterButton = page.Find("button:contains('Filter')");
-
-
-            // Find filter text input field
-            var filterText = page.Find("input");
-
-            // Find clear filter button
+            //Arrange
+            using var context = new Bunit.TestContext();
+            context.Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var inputTextId = "input";
             
-            var clearFilterButton = page.Find("button:contains('Clear')");
+            
 
-            // Count the number of cards before filtering
-            var preResultCount = page.FindAll(".card").Count;
+            //Act
+            var page = context.RenderComponent<ProductList>();
+            var inputTags = page.FindAll("input");
+            var input = inputTags.First(m => m.OuterHtml.Contains(inputTextId, StringComparison.OrdinalIgnoreCase));
+            input.Change("James");
+            var buttonList = page.FindAll("button");
+            var filterbutton = buttonList.First(m => m.OuterHtml.Contains("Filter", StringComparison.OrdinalIgnoreCase));
+            filterbutton.Click();
+            var result = page.Markup;
 
-            // Enter search term
-            filterText.Change("Java");
 
-            // Click filter button
-            filterButton.Click();
+            //Assert
+            Assert.NotNull(result);
+            Assert.IsTrue(result.Contains("James"));
+            Assert.IsFalse(result.Contains("Donna"));
 
-            // Click clear filter button
-            clearFilterButton.Click();
-            filterText.Change("");
+            //Act
+            var clearbutton = buttonList.First(m => m.OuterHtml.Contains("Clear", StringComparison.OrdinalIgnoreCase));
+            clearbutton.Click();
+            var updated_result = page.Markup;
 
-            // Count the number of cards after clearing the filter
-            var postResultCount = page.FindAll(".card").Count;
-
-            // Assert
-            Assert.AreEqual(0, postResultCount.CompareTo(preResultCount));
+            //Assert
+            Assert.NotNull(updated_result);
+            Assert.IsTrue(updated_result.Contains("James"));
+            Assert.IsTrue(updated_result.Contains("Donna"));
         }
 
         [Test]
