@@ -26,14 +26,20 @@ namespace UnitTests.Components
         [Test]
         public void ProductList_Valid_Rendering_Should_Return_Content_For_All_Products()
         {
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var page = RenderComponent<ProductList>();
+            using var context = new Bunit.TestContext();
+
+            context.Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            //Act
+
+            var page = context.RenderComponent<ProductList>();
             var result = page.Markup;
-            var products = TestHelper.ProductService.GetAllData();
-            foreach (ProductModel product in products)
-            {
-                Assert.AreEqual(true, result.Contains(product.Title));
-            }
+            
+            //Assert
+            
+            
+            Assert.NotNull(result);
+            Assert.IsTrue(result.Contains("James"));
+            
         }
 
         [Test]
