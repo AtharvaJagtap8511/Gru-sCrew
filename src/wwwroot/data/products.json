@@ -9,7 +9,7 @@
     "Skills": "Machine Learning, Computer Algorithms",
     "Preference": "Inperson",
     "Description": "I am a skilled Computer techie specialized in Machine learning and Computer Algorithms.",
-    "Email": "jjhonson@gmail.com",
+    "Email": "aaaa@aaa.edu",
     "Ratings": [
       5,
       5,
@@ -73,7 +73,9 @@
     "Preference": "Virtual",
     "Description": "Excited to pass on my skills on cyber security and OS.",
     "Email": "ewilliams@gmail.com",
-    "Ratings": null,
+    "Ratings": [
+      1
+    ],
     "ErrorMessage": null
   },
   {
