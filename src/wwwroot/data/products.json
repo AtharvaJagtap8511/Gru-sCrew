@@ -8,7 +8,7 @@
     "Title": "James Johnson",
     "Skills": "Machine Learning, Computer Algorithms",
     "Preference": "Inperson",
-    "Description": "I am a skilled Computer techie specialized in Machine learning and Computer Algorithms.",
+    "Description": "I am a skilled Computer techie specialized in Machine learning and Computer Algorithms.Completed course from seattle University in machine learning.",
     "Email": "aaaa@aaa.edu",
     "Ratings": [
       5,
@@ -29,7 +29,7 @@
     "Title": "Robert Zane",
     "Skills": "Web Application Developer, Python",
     "Preference": "Inperson",
-    "Description": "I have profound knowledge of Python and I work as Web Application Developer.",
+    "Description": "I have profound knowledge of Python and I work as Web Application Developer.Completed course from seattle University in Software devlopment.",
     "Email": "rzane@gmail.com",
     "Ratings": null,
     "ErrorMessage": null
@@ -43,7 +43,7 @@
     "Title": "Ava Smith",
     "Skills": "C, C\u002B\u002B, Java",
     "Preference": "Virtual",
-    "Description": "I am skilled in the basic programming languages and enthusiast to share my knowledge.",
+    "Description": "I am skilled in the basic programming languages and enthusiast to share my knowledge. I have experience of 10 years.",
     "Email": "asmith@gmail.com",
     "Ratings": null,
     "ErrorMessage": null
@@ -57,7 +57,7 @@
     "Title": "Donna Paulsen",
     "Skills": "Java, Mobile App Development",
     "Preference": "Inperson",
-    "Description": "I am skilled in Java and will be the right person to come to for any app development need.",
+    "Description": "I am skilled in Java and will be the right person to come to for any app development need. I am currently working in amazon for past 7 years in the field of Java and sub parts of it.",
     "Email": "dpaulsen@gmail.com",
     "Ratings": null,
     "ErrorMessage": null
@@ -71,7 +71,7 @@
     "Title": "Emma Williams",
     "Skills": "Operating Systems, Cyber Security",
     "Preference": "Virtual",
-    "Description": "Excited to pass on my skills on cyber security and OS.",
+    "Description": "Excited to pass on my skills on cyber security and OS. Completed many projects and research papers in security, you can check my resume for details.",
     "Email": "ewilliams@gmail.com",
     "Ratings": [
       1
