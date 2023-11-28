@@ -64,7 +64,7 @@ namespace UnitTests.Pages.Product.Update
             var result = pageModel.OnGet("Bogus") as RedirectToPageResult;
 
             // Assert
-            Assert.AreEqual("./Index", result.PageName);
+            Assert.AreEqual("/Error", result.PageName);
 
             // Reset
             // This should remove the error we added
