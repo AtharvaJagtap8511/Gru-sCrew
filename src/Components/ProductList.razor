@@ -57,7 +57,7 @@
                         <div class="card-footer">
                             <small class="text-muted">
                                 <button @onclick="(e => SelectProduct(product.Id))" id="Details_@product.Id"
-                                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">
                                     Details
                                 </button>
                             </small>
@@ -161,45 +161,35 @@
     bool voted = false;
     void GetCurrentRating()
     {
-        try
+
+        if (selectedProduct.Ratings == null)
         {
-            if (selectedProduct.Ratings == null)
-            {
-                currentRating = 0;
-                voteCount = 0;
-            }
-            else
-            {
-                voteCount = selectedProduct.Ratings.Count();
-                voteLabel = voteCount > 1 ? "Votes" : "Vote";
-                currentRating = selectedProduct.Ratings.Sum() / voteCount;
-            }
+            currentRating = 0;
+            voteCount = 0;
         }
-        catch (Exception ex)
+        else
         {
-            Console.WriteLine("An error occurred while calculating the current rating: " + ex.Message);
+            voteCount = selectedProduct.Ratings.Count();
+            voteLabel = voteCount > 1 ? "Votes" : "Vote";
+            currentRating = selectedProduct.Ratings.Sum() / voteCount;
         }
+
     }
 
     void SubmitRating(int rating)
     {
-        try
+
+        if (voted == false)
         {
-            if (voted == false)
-            {
-                ProductService.AddRating(selectedProductId, rating);
-                voted = true;
-                SelectProduct(selectedProductId);
-            }
-            else
-            {
-                voteLabel = "you already voted";   
-            }
+            ProductService.AddRating(selectedProductId, rating);
+            voted = true;
+            SelectProduct(selectedProductId);
         }
-        catch (Exception ex)
+        else
         {
-            Console.WriteLine("An error occurred while submitting the rating: " + ex.Message);
+            voteLabel = "you already voted";
         }
+
     }
 
     void UpdateFilterText(string text)

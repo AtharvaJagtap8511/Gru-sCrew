@@ -297,6 +297,7 @@ namespace UnitTests.Components
             Assert.IsTrue(updated_result.Contains("James"));
             Assert.IsTrue(updated_result.Contains("Donna"));
         }
+        
 
         [Test]
         public void Change_Appointment_Type_Should_Update_Selected_Type()
