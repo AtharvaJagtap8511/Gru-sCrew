@@ -7,9 +7,11 @@
 }
 
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+
 for details on configuring this project to bundle and minify static web assets. */
 
-/*Changes by sheetal*/
+/* Changes by Sheetal */
+
 .card-columns .card-img {
     height: 300px; /* Adjusted height */
     vertical-align: bottom;
@@ -19,7 +21,8 @@ for details on configuring this project to bundle and minify static web assets. 
     opacity: .8;
 }
 
-/* Added by sheetal to change the formatting according to website*/
+/* Added by Sheetal to change the formatting according to the website */
+
 .modal {
     max-width: 1000px; /* Increase the max-width of the dialog box */
     margin: auto; /* Center the modal horizontally and vertically */
@@ -29,11 +32,9 @@ for details on configuring this project to bundle and minify static web assets. 
     left: 0;
 }
 
-
     .modal .card {
         width: 100%; /* Make the card fill the modal */
     }
-
 
     .modal .card-img {
         height: 220px; /* Reduce the height */
@@ -46,28 +47,27 @@ for details on configuring this project to bundle and minify static web assets. 
         animation: fadeIn 1s ease-in-out; /* Add animation */
     }
 
-
 /* Keyframes for fadeIn animation */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
-
 
     to {
         opacity: 1;
     }
 }
 
-
 /* Card Columns */
+
 .card-columns .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(37, 33, 82, 0.12), 0 4px 8px rgba(37, 33, 82, 0.06);
 }
 
-
 /* Card Footer */
+
 .card-footer {
     background: #fbfafd;
 }
@@ -80,7 +80,8 @@ a.navbar-brand {
     word-break: break-all;
 }
 
-/* Provide sufficient contrast against white background */
+/* Provide sufficient contrast against a white background */
+
 a {
     color: #0366d6;
 }
@@ -96,14 +97,15 @@ a {
         background-color: rgba(152, 255, 152, 0.2);
     }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+/* Sticky footer styles */
+
 html {
     font-size: 14px;
 }
@@ -131,8 +133,8 @@ button.accept-policy {
     line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+/* Sticky footer styles */
+
 html {
     position: relative;
     min-height: 100%;
@@ -145,9 +147,8 @@ body {
     background-repeat: no-repeat; /* Prevents the background image from repeating */
 }
 
-
 p {
-    font-family: 'PT Serif', serif; /* Added by sheetal for dialog box*/
+    font-family: 'PT Serif', serif; /* Added by Sheetal for the dialog box */
 }
 
 h1 {
@@ -166,7 +167,9 @@ ul {
     line-height: 60px; /* Vertically center the text there */
     font-family: 'Nunito', sans-serif;
 }
-/*Backgrounds*/
+
+/* Backgrounds */
+
 .bg-navbar {
     background: -webkit-linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
     background: -o-linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
@@ -174,13 +177,13 @@ ul {
     background: linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
 }
 
-
 .bg-footer {
     background: -webkit-linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
     background: -o-linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
     background: -moz-linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
     background: linear-gradient(110deg, #d1dddb 60%, #283b42 60%);
 }
+
 /* Add your custom styles here */
 
 label {
@@ -204,7 +207,6 @@ input[type="submit"] {
     cursor: pointer;
     border-radius: 4px;
 }
-
 
     input[type="submit"]:hover {
         background-color: rgba(152, 255, 152, 0.2);
@@ -266,7 +268,8 @@ input[type="submit"] {
     border: 2px solid #555; /* Add a border to the table */
 }
 
-    .custom-table th, .custom-table td {
+    .custom-table th,
+    .custom-table td {
         padding: 10px;
         text-align: center;
     }
@@ -322,3 +325,51 @@ input[type="submit"] {
         background-color: #ffffff;
         color: #343a40;
     }
+
+/* site.css */
+
+body {
+    font-family: 'Roboto', sans-serif; /* Use the Roboto font for the entire page */
+}
+
+.container.profile-info-container {
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif; /* Use the Roboto font for headers */
+    font-size: 24px; /* Increased font size */
+}
+
+.content {
+    font-size: 18px; /* Increased font size */
+}
+
+.image-frame {
+    display: inline-block;
+    border: 5px solid #000; /* Black border for the frame */
+    border-radius: 8px; /* Added border-radius for rounded corners */
+    overflow: hidden; /* Ensure the border doesn't enlarge the image */
+}
+
+img.profile-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+p.profile-description {
+    background-color: #fff; /* White background for the description box */
+    padding: 10px; /* Added padding for spacing within the box */
+    border-radius: 8px; /* Added border-radius for rounded corners */
+    margin-top: 10px; /* Added margin for spacing between elements */
+}
+
+.btn-primary.update-btn {
+    font-size: 18px; /* Increased font size */
+    /* Other styles */
+}
+
+strong {
+    font-weight: bold;
+}
