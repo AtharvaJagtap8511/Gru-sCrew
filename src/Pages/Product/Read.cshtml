@@ -1,4 +1,5 @@
 ﻿@page "{id}"
+
 @using ContosoCrafts.WebSite.Services
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Product.ReadModel
@@ -7,67 +8,19 @@
     ViewData["Title"] = "Read page";
 }
 
-<style>
-    body {
-        font-family: 'Roboto', sans-serif; /* Use the Roboto font for the entire page */
-    }
-
-    .container {
-        text-align: center;
-    }
-
-    h3 {
-        font-family: 'Roboto', sans-serif; /* Use the Roboto font for headers */
-        font-size: 24px; /* Increased font size */
-    }
-
-    .content {
-        font-size: 18px; /* Increased font size */
-    }
-
-    .image-frame {
-        display: inline-block;
-        border: 5px solid #000; /* Black border for the frame */
-        border-radius: 8px; /* Added border-radius for rounded corners */
-        overflow: hidden; /* Ensure the border doesn't enlarge the image */
-    }
-
-    img.card-img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    p.card-text {
-        background-color: #fff; /* White background for the description box */
-        padding: 10px; /* Added padding for spacing within the box */
-        border-radius: 8px; /* Added border-radius for rounded corners */
-        margin-top: 10px; /* Added margin for spacing between elements */
-    }
-
-    .btn-primary {
-        font-size: 18px; /* Increased font size */
-        /* Other styles */
-    }
-
-    strong {
-        font-weight: bold;
-    }
-</style>
-
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="path/to/site.css">
 
-<div class="container">
+<div class="container profile-info-container">
     <h3>Profile Information for @Model.Product.Title</h3>
-
     <div class="content">
         <div class="image-frame">
-            <img class="card-img mx-auto d-block" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
+            <img class="profile-img mx-auto d-block" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
         </div>
-        <p class="card-text"><strong>@Model.Product.Description</strong></p>
-        <p class="card-text"><strong>Skills:</strong> @Model.Product.Skills</p>
-        <p class="card-text"><strong>Resume Link:</strong> <a href="@Model.Product.Url" target="_blank">@Model.Product.Title's Resume</a></p>
-        <p class="card-text">
+        <p class="profile-description"><strong>@Model.Product.Description</strong></p>
+        <p class="profile-skills"><strong>Skills:</strong> @Model.Product.Skills</p>
+        <p class="profile-resume-link"><strong>Resume Link:</strong> <a href="@Model.Product.Url" target="_blank">@Model.Product.Title's Resume</a></p>
+        <p class="profile-meetup-preference">
             <strong>Meetup Preference:</strong>
             <label>
                 <input type="radio" name="meetupPreference" value="Virtual" disabled @(Model.Product.Preference == "Virtual" ? "checked" : "") /> Virtual
@@ -76,11 +29,11 @@
                 <input type="radio" name="meetupPreference" value="Inperson" disabled @(Model.Product.Preference == "Inperson" ? "checked" : "") /> In Person
             </label>
         </p>
-        <p class="card-text"><strong>Email:</strong><a href="mailto:@Model.Product.Email" target="_blank">@Model.Product.Email</a></p>
-        <p class="card-text"><strong>Age:</strong> @Model.Product.Age</p>
+        <p class="profile-email"><strong>Email:</strong><a href="mailto:@Model.Product.Email" target="_blank">@Model.Product.Email</a></p>
+        <p class="profile-age"><strong>Age:</strong> @Model.Product.Age</p>
         <div class="row">
             <div class="col-md-3 mx-auto">
-                <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary btn-block btn-sm">
+                <a asp-page="Update" asp-route-id="@Model.Product.Id" class="update-btn btn btn-primary btn-block btn-sm">
                     <span style="font-size: 18px;"><strong>Update</strong></span>
                 </a>
             </div>
